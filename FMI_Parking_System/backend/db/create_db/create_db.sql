@@ -61,7 +61,7 @@ CREATE TABLE `schedules` (
 --
 
 CREATE TABLE `slots` (
-  `id` int(11) NOT NULL,
+  `id` int(11) PRIMARY KEY AUTO_INCREMENT,
   `code` int(1) NOT NULL,
   `zone` varchar(1) NOT NULL,
   `lecturer_only` tinyint(1) NOT NULL
@@ -71,47 +71,47 @@ CREATE TABLE `slots` (
 -- Схема на данните от таблица `slots`
 --
 
-INSERT INTO `slots` (`id`, `code`, `zone`, `lecturer_only`) VALUES
-(1, 0, 'A', 1),
-(4, 1, 'A', 1),
-(5, 2, 'A', 1),
-(6, 3, 'A', 1),
-(7, 4, 'A', 1),
-(8, 5, 'A', 1),
-(9, 6, 'A', 1),
-(10, 7, 'A', 0),
-(11, 8, 'A', 0),
-(12, 9, 'A', 0),
-(13, 0, 'B', 1),
-(14, 1, 'B', 1),
-(15, 2, 'B', 1),
-(16, 3, 'B', 1),
-(17, 4, 'B', 1),
-(18, 5, 'B', 1),
-(19, 6, 'B', 1),
-(20, 7, 'B', 0),
-(21, 8, 'B', 0),
-(22, 9, 'B', 0),
-(23, 0, 'C', 1),
-(24, 1, 'C', 1),
-(25, 2, 'C', 1),
-(26, 3, 'C', 1),
-(27, 4, 'C', 1),
-(28, 5, 'C', 1),
-(29, 6, 'C', 1),
-(30, 7, 'C', 0),
-(31, 8, 'C', 0),
-(32, 9, 'C', 0),
-(33, 0, 'D', 0),
-(34, 1, 'D', 0),
-(35, 2, 'D', 0),
-(36, 3, 'D', 0),
-(37, 4, 'D', 0),
-(38, 5, 'D', 0),
-(39, 6, 'D', 0),
-(40, 7, 'D', 0),
-(41, 8, 'D', 0),
-(42, 9, 'D', 0);
+INSERT INTO `slots` (`code`, `zone`, `lecturer_only`) VALUES
+(0, 'A', 1),
+(1, 'A', 1),
+(2, 'A', 1),
+(3, 'A', 1),
+(4, 'A', 1),
+(5, 'A', 1),
+(6, 'A', 1),
+(7, 'A', 0),
+(8, 'A', 0),
+(9, 'A', 0),
+(0, 'B', 1),
+(1, 'B', 1),
+(2, 'B', 1),
+(3, 'B', 1),
+(4, 'B', 1),
+(5, 'B', 1),
+(6, 'B', 1),
+(7, 'B', 1),
+(8, 'B', 1),
+(9, 'B', 1),
+(10, 'B', 1),
+(11, 'B', 0),
+(12, 'B', 0),
+(13, 'B', 0),
+(14, 'B', 0),
+(15, 'B', 0),
+(16, 'B', 0),
+(17, 'B', 0),
+(0, 'C', 0),
+(1, 'C', 0);
+-- (33, 0, 'D', 0),
+-- (34, 1, 'D', 0),
+-- (35, 2, 'D', 0),
+-- (36, 3, 'D', 0),
+-- (37, 4, 'D', 0),
+-- (38, 5, 'D', 0),
+-- (39, 6, 'D', 0),
+-- (40, 7, 'D', 0),
+-- (41, 8, 'D', 0),
+-- (42, 9, 'D', 0);
 
 -- --------------------------------------------------------
 
@@ -161,7 +161,7 @@ ALTER TABLE `schedules`
 -- Индекси за таблица `slots`
 --
 ALTER TABLE `slots`
-  ADD PRIMARY KEY (`id`),
+  -- ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `unique_code_zone` (`code`,`zone`) USING BTREE;
 
 --
@@ -197,8 +197,8 @@ ALTER TABLE `schedules`
 --
 -- AUTO_INCREMENT for table `slots`
 --
-ALTER TABLE `slots`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+-- ALTER TABLE `slots`
+--   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `users`
