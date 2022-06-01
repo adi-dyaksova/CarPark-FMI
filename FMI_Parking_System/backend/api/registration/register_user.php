@@ -20,8 +20,8 @@ else {
 
 $firstname = $user_data["firstname"]; // get input first name
 $lastname = $user_data["lastname"]; // get input last name
-$email = $user_data["email"]; // get input email
-$password = $user_data["password"]; // get input password
+$email = $user_data["email-register"]; // get input email
+$password = $user_data["password-register"]; // get input password
 $repeated_password = $user_data["repeat_password"]; // get input repeated password
 $hashed_password = password_hash($password, PASSWORD_DEFAULT); // hash the input password
 $user_type = $user_data["user_type"]; // get input user type

@@ -17,8 +17,8 @@ else {
     exit(json_encode(["status" => "ERROR", "message" => "Невалиден JSON формат!"]));
 }
 
-$email = $user_data["email"]; // get input email
-$password = $user_data["password"]; // get input password
+$email = $user_data["email-login"]; // get input email
+$password = $user_data["password-login"]; // get input password
 $user = ["email" => $email, "password" => $password];
 
 // login user
