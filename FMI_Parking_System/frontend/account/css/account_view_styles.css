@@ -19,6 +19,7 @@ body {
     --scheduleShadow: rgba(122, 122, 122, 0.212);
     --scheduleBackground: rgba(255, 255, 255, 0.4);
     --optionHoverColor: rgba(255, 255, 255, 0.8);
+
 }
 
 main {
@@ -26,9 +27,9 @@ main {
 
     background: linear-gradient(to right top, var(--fontFrom), var(--fontTo));
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center; */
 }
 
 h3 {
@@ -55,13 +56,13 @@ input, button {
 /* account tab */
 
 #account-tab {
-    width: 60%;
-    min-height: 80vh;
-    max-height: 80vh;
+    width: 100%;
+    /* min-height: 80vh;
+    max-height: 80vh; */
     
-    background: linear-gradient(to right bottom, var(--accountColorFrom), var(--accountColorTo));
+    /* background: linear-gradient(to right bottom, var(--accountColorFrom), var(--accountColorTo)); */
 
-    border-radius: 2rem;
+    /* border-radius: 2rem; */
 
     /* make it appear in front of the glass circles */
     position: absolute;
@@ -70,41 +71,41 @@ input, button {
     /* blur background glass circles */
     backdrop-filter: blur(1rem);
 
-    display: flex;
+    display: block;
     justify-content: space-between;
 }
 
 /* glass circles */
 
-.glass-circle {
+/* .glass-circle {
     display: inline-block;
     border-radius: 50%;
 
     width: 15vw;
     height: 27vh;
 
-    /* make each glass circle appear behind the account tab
-       no need of 'position: relative' to use z-index because we get 'position: absolute' from each glass circle's id definitions */
+    //make each glass circle appear behind the account tab
+       no need of 'position: relative' to use z-index because we get 'position: absolute' from each glass circle's id definitions 
     z-index: 1;
-}
+} */
 
-#bottom-glass-circle {
-    /* position the circle at the bottom left corner of the account tab */
+/* #bottom-glass-circle {
+     //position the circle at the bottom left corner of the account tab 
     position: absolute;
     bottom: 3vh;
     left: 14vw;
 
     background: linear-gradient(to left bottom, var(--glassCircleColorFrom), var(--glassCircleColorTo));
-}
+} */
 
-#top-glass-circle {
-    /* position the circle at the top right corner of the account tab */
+/* #top-glass-circle {
+    //position the circle at the top right corner of the account tab 
     position: absolute;
     top: 3vh;
     right: 14vw;
 
     background: linear-gradient(to right top, var(--glassCircleColorFrom), var(--glassCircleColorTo));
-}
+} */
 
 /* navbar */
 
@@ -112,11 +113,12 @@ input, button {
     /* make the options tab take up 30% of the account tab's space with no growing and shrinking */
     flex: 1 0 30%;
 
-    border-radius: 2rem;
+    /* border-radius: 2rem; */
+    border-radius: 0;
     background: linear-gradient(to top left, var(--accountColorTo), var(--accountColorFrom));
 
     display: flex;
-    flex-direction: column;
+    flex-direction:row;
     justify-content: center;
     align-items: center;
 }
@@ -145,7 +147,6 @@ input, button {
 /* the logo of the university and the name of the system */
 .non-option {
     width: 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -153,13 +154,14 @@ input, button {
 }
 
 .non-option img {
-    width: 30%;
-    height: 70%;
+    width: 20%;
+    padding: 1em;
 }
 
 .non-option span > h3 {
     /* change color back to black for the non-options only */
     color: black;
+    font-size: small;
 }
 
 #system-name {
@@ -169,20 +171,43 @@ input, button {
 
 /* all tabs next to navbar */
 
-.right-tab {
+/* .right-tab {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     
     max-width: 65%;
-}
+} */
 
 /* my account tab */
+#account-tab > section{
+
+    margin: auto;
+    border-radius: 50px;
+    width: 70%;
+    /* min-height: 50vh; */
+
+
+    background: linear-gradient(to right bottom, var(--accountColorFrom), var(--accountColorTo));
+    display: block;
+    padding: 2%;
+    text-align: center;
+    margin-top: 3%;
+
+
+
+}
 
 #my-account-section {
     /* make my account section cover 80% with no growing and shrinking */
-    flex: 1 0 80%;
+    /* flex: 1 0 20%; */
+
+    /* moved to #account-tab > section */
+    /* margin: auto;
+    border-radius: 50px;
+    width: 70%;
+    min-height: 50vh; */
 }
 
 #my-account-header {
@@ -193,15 +218,27 @@ input, button {
 }
 
 #account-details {
-    width: 80%;
-
-    flex-grow: 1;
-    display: flex;
+    /* width: 80%; */
+    /* flex-grow: 1;
+    
     flex-direction: column;
+    margin: auto; */
+    display: flex;
 }
 
 #account-details p {
     margin: 0.5rem;
+}
+
+.user-info{
+    display: inline-block;
+    width: 50%;
+    /* text-align: left; */
+}
+
+.schedule-wrapper{
+    display: inline-block;
+    width: 49%;
 }
 
 #user-picture {
@@ -214,11 +251,15 @@ input, button {
     flex-grow: 0;
 }
 
+#qrcode{
+    text-align: -webkit-center;
+}
+
 .schedule {
     /* align the schedule tab at the center */
     align-self: center;
 
-    width: 80%;
+    /* width: 80%; */
     height: 38%;
     
     box-sizing: border-box;
@@ -291,12 +332,17 @@ input, button {
 /* upload shchedules tab */
 
 #my-schedule-section {
-    font-size: 1.5rem;
-
+    /* display: flex; is removed by some reason */
+    display: flex; 
+    align-items: center;
+    /* font-size: 1.5rem;
     flex: 1 0 70%;
+    justify-content: flex-start; */
+    /* width: 80%;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 20px; */
 
-
-    justify-content: flex-start;
 }
 
 #upload-file-section {
@@ -333,15 +379,23 @@ input[type=file] {
     font-size: 1.5rem;
 }
 
+.button-section-wrapper{
+    display: inline-block;
+    width: 50%;
+}
 #button-section {
-    display: flex;
+    /* display: flex;
     justify-content: space-evenly;
 
     padding-top: 2rem;
-    flex: 1 0 -5%;
+    flex: 1 0 -5%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .button-style {
+    margin: 1%;
     border-radius: 1rem;
     border: none;
 
@@ -350,12 +404,16 @@ input[type=file] {
     padding: 1rem;
     font-size: 1.2rem;
 
-    width: 30%;
+    width: 80%;
     height: 100%;
 
     filter: brightness(90%);
-
     cursor: pointer;
+}
+
+.schedule-data-section{
+    display: inline-block;
+    width: 49%;
 }
 
 .button-style:hover {
@@ -463,7 +521,7 @@ input[type=file] {
     }
 }
 
-#schedule-section, #slots-section {
+/* #schedule-section, #slots-section {
     padding: 1rem;
     flex: 1 0 70%;
 
@@ -515,4 +573,4 @@ input[type=file] {
 
 .schedule-item span:last-child {
     flex: 1 0 50%;
-}
+} */

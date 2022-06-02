@@ -12,6 +12,8 @@
     <script defer src="javascript/map_click_reaction.js"></script>
     <script defer src="javascript/submit_csv_file.js"></script>
     <script defer src="javascript/get_schedule.js"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js" defer></script>
+    <script defer src="javascript/generate-qr.js"></script>
     <script>
         /* reload the page on load because the page won't load the user's data when he has set cookies */
         window.onload = function() {
@@ -30,13 +32,19 @@
             <!-- Navbar -->
             <nav id="options-menu">
 
-                <!-- Sofia University logo -->
+                <!--  logo -->
                 <div class="non-option">
                     <img src="images/Sofia_University_Logo.png" alt="Sofia University Logo">
+                    <span id="system-name"><h3>Система за паркиране във ФМИ</h3></span>
+                    <img src="images/fmi-black.png" alt="FMI Logo">
                 </div>
 
                 <div class="option" id="my-account">
-                    <span><h3>Моят акаунт</h3></span>
+                    <span><h3>Моят профил</h3></span>
+                </div>
+
+                <div class="option" id="my-qrcode">
+                    <span><h3>QR код</h3></span>
                 </div>
 
                 <div class="option" id="parking-zones">
@@ -55,57 +63,64 @@
                     <span><h3>Изход</h3></span>
                 </div>
 
-                <!-- System name -->
-                <div class="non-option">
-                    <span id="system-name"><h3>Система за паркиране във ФМИ</h3></span>
-                </div>
-
             </nav>
 
             <!-- My Account tab -->
-            <section id="my-account-section" class="right-tab">
+            <section id="my-account-section">
 
                 <!-- The tab header -->
                 <header id="my-account-header">
-                    <h1>Моят акаунт</h1>
+                    <h1>Моят профил</h1>
                 </header>
 
                 <!-- The content of the tab -->
                 <article id="account-details">
-
+                <div class="user-info">
                     <!-- User picture (for now it is a static one) -->
                     <div id="user-picture">
                         <img src="images/sample_user1.png" alt="user-picture">
                     </div>
-
+                
                     <p id="firstname"><strong>Име: </strong></p>
                     <p id="lastname"><strong>Фамилия: </strong></p>
                     <p id="email"><strong>Имейл: </strong></p>
                     <p id="user-type"><strong>Тип потребител: </strong></p>
+                </div>
+
+                <div class="schedule-wrapper">
                     <p><strong>График за днес: </strong></p>
 
                     <!-- The schedule of the user for today-->
                     <div class="schedule">
                     </div>
+                </div>
                 </article>
 
             </section>
+            <!-- QR code section -->
+            <section id="my-qrcode-section" class="no-display">
+                <button id="generate-qr" class="button-style "> Генерирай QR код</button>
+                <div id="qrcode"></div>
+            </section>
 
             <!-- Map of all parking zones -->
-            <section id="parking-zones-section" class="no-display right-tab">
+            <section id="parking-zones-section" class="no-display">
                 <img src="images/map.png" alt="map showing all the zones">
             </section>
 
             <!-- Upload schedule tab -->
-            <section id="my-schedule-section" class="no-display right-tab">
+            <section id="my-schedule-section" class="no-display">
 
                 <!-- The three buttons over at the top of the tab -->
+                <section class="button-section-wrapper">
                 <section id="button-section">
                     <button class="button-style" id="first-button">Качване на график</button>
                     <button class="button-style active" id="second-button">График</button>
                     <button class="button-style" id="third-button">Запазени паркоместа</button>
                 </section>
+            </section>
 
+                <section class="schedule-data-section">
                 <!-- The section for the "Качване на график" button -->
                 <section id="upload-file-section" class="no-display">
                     <form id="upload-file-form">
