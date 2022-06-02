@@ -17,6 +17,8 @@
         inputs.forEach(input => {
             data[input.name] = input.value;
         })
+        
+        console.log(data);
 
         sendFormData(data)
         .then((responseMessage) => {

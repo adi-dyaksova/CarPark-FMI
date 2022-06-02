@@ -1,39 +1,105 @@
-const btn = document.getElementById('generate-qr');
+const qr_max_seconds = 3600;
+var qrcode_el = document.getElementById("qrcode");
+var expired_qr_msg = document.getElementById("expired-qr-msg");
+const curr_time_seconds = Math.trunc(Date.now() / 1000);
+const display_qr_btn = document.getElementById('display-qr-btn');
 
-btn.addEventListener('click', ()=>{
-    const qrcode_el = document.getElementById("qrcode");
-    qrcode_el.innerText=null;
-    generateQR();
-});
+const new_qr_btn = document.getElementById("new-qr-btn");
+
+var user_email;
+
+function get_new_qr() {
+    // console.log("update qr code");
+
+    update_qr()
+    .then((responseMessage) => {
+        console.log(responseMessage);
+        if (responseMessage["status"] === "ERROR") {
+            throw new Error(responseMessage["message"]);
+        }
+        else {
+            expired_qr_msg.classList.add("no-display");
+            new_qr_btn.classList.add("no-display");
+        }
+    })
+    .catch((errorMsg) => {
+        console.log(errorMsg);
+
+        // showDiv(responseDiv, errorMsg); // create an error message if the server returned an error
+    })
+    
+}
+
+function update_qr(){
+
+    return fetch("../../backend/api/update_qr/update_qr_datetime.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+            qr_generated_time: curr_time_seconds,
+            email: user_email
+        })
+    })
+    .then((response) => response.json()
+    )
+    .then((data) => {
+
+        return data;
+    })
+}
+
 
 function generateQR() {
     getUserData()
     .then((userData) => {
         if (userData["status"] === "SUCCESS") {
-            if (userData["data"]["user_type"] == "Щатен преподавател"){
-                console.log("yess");
-            }
 
-            var qr_data = JSON.stringify({
-                name: userData["data"]["firstname"],
-                lastname: userData["data"]["lastname"],
-                email: userData["data"]["email"],
-                user_type: userData["data"]["user_type"]
-            });
+            // generate static QR code
+           // if (userData["data"]["user_type"] == "Щатен преподавател"){  //да се смени на Хоноруван
 
-            qr_data = to_latin(qr_data);
-            console.log(qr_data);
+                const qr_generated_time_seconds = userData["data"]["qr_generated_time"];
+                user_email = userData["data"]["email"];
+                
+                if(curr_time_seconds - qr_generated_time_seconds > qr_max_seconds){
+                    // console.log("expired");
+                    qrcode_el.innerHTML = null;
+                    expired_qr_msg.classList.remove("no-display");
+                    new_qr_btn.classList.remove("no-display");    
+                }
+                else{
+                  
+                    if(!expired_qr_msg.classList.contains("no-display")){
+                        expired_qr_msg.classList.add("no-display");
+                    }
+                    if(!new_qr_btn.classList.contains("no-display")){
+                        new_qr_btn.classList.add("no-display");
+                    }
+                    
+                    // console.log("still valid");
+                    //display QR code
+                    var qr_data = JSON.stringify({
+                        name: userData["data"]["firstname"],
+                        lastname: userData["data"]["lastname"],
+                        user_type: userData["data"]["user_type"],
+                        qr_generated_time: toDateTime(userData["data"]["qr_generated_time"])
+                    });
 
-            const qrcode = new QRCode(document.getElementById("qrcode"), {
-                text: qr_data,
-                width: 128,
-                height: 128,
-                colorDark : "#000000",
-                colorLight : "#ffffff",
-                correctLevel : QRCode.CorrectLevel.H
-            });
+                    qr_data = to_latin(qr_data);                    
+                    qrcode_el.innerText = null;
 
-
+                    const qrcode = new QRCode(qrcode_el, {
+                        text: qr_data,
+                        width: 128,
+                        height: 128,
+                        colorDark : "#000000",
+                        colorLight : "#ffffff",
+                        correctLevel : QRCode.CorrectLevel.H
+                    });
+                }
+            
         }
         else if (userData["status"] == "UNAUTHENTICATED") { // if there is no session or cookies, return the user to the login page
             window.location.replace("../login/login_form.html");
@@ -70,5 +136,11 @@ function to_latin (str){
         str=str.replaceAll(bul_low[i],lat_low[i]);
     }
     return str;
+}
+
+function toDateTime(secs) {
+    var t = new Date(1970, 0, 1); // Epoch
+    t.setSeconds(secs);
+    return t;
 }
 

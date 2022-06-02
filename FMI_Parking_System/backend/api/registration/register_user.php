@@ -7,11 +7,11 @@ require_once("../functions/check_JSON_validity.php");
 // file_get_contents() reads file into a string, but in this case it parses the raw data from the stream into the string
 $data = file_get_contents("php://input");
 
-$user_data = null; // used to store the decoded JSON string $data
-
+$user_data; // used to store the decoded JSON string $data
 // check if the JSON is correct
 if (strlen($data) > 0 && check_json($data)) {
     $user_data = json_decode($data, true);
+    echo $user_data;
 }
 else {
     http_response_code(400);

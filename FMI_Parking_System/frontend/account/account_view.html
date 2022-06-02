@@ -99,8 +99,10 @@
             </section>
             <!-- QR code section -->
             <section id="my-qrcode-section" class="no-display">
-                <button id="generate-qr" class="button-style "> Генерирай QR код</button>
+                <button id="display-qr-btn" onclick="generateQR()" class="button-style "> Покажи QR код</button>
                 <div id="qrcode"></div>
+                <div id="expired-qr-msg" class="no-display">Вашият QR е изтекъл. Натиснете долния бутон, за да се генерира нов QR код.</div>
+                <button id="new-qr-btn" onclick="get_new_qr()" class="button-style no-display">Генерирай нов QR код</button>
             </section>
 
             <!-- Map of all parking zones -->
