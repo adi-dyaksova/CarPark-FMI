@@ -3,7 +3,7 @@
 
 <div align="center">
   
-  [**DOCUMENTATION LINK**](https://github.com/andy489/FMI_Parking_System/blob/main/Documentation/FMI%20Parking%20System.pdf)
+  [**DOCUMENTATION LINK**](https://github.com/Svetoslav2112/CarPark-FMI/blob/main/Documentation/FMI%20Parking%20System.pdf)
   
 </div>
 
