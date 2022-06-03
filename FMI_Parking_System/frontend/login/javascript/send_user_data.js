@@ -123,7 +123,7 @@ function sendFormData(data) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: data
+        body: JSON.stringify(data)
     })
     .then((response) => {
         return response.json();

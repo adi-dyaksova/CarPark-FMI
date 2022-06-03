@@ -99,8 +99,9 @@
             </section>
             <!-- QR code section -->
             <section id="my-qrcode-section" class="no-display">
-                <button id="display-qr-btn" onclick="generateQR()" class="button-style "> Покажи QR код</button>
-                <div id="qrcode"></div>
+                <button id="display-qr-btn" onclick="displayQR()" class="button-style "> Покажи QR код</button>
+                <button id="hide-qr-btn" onclick="hideQR() " class="button-style no-display"> Скрий QR код</button>
+                <div id="qrcode" class="no-display"></div>
                 <div id="expired-qr-msg" class="no-display">Вашият QR е изтекъл. Натиснете долния бутон, за да се генерира нов QR код.</div>
                 <button id="new-qr-btn" onclick="get_new_qr()" class="button-style no-display">Генерирай нов QR код</button>
             </section>

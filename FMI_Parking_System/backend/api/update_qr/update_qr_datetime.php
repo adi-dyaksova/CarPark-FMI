@@ -57,7 +57,7 @@ try {
     if ($stmt->execute(["qr_generated_time" => $qr_generated_time ,"email" => $email])) {
         
         http_response_code(200);
-        exit(json_encode(["status" => "SUCCESS", "message" => "Успешно обновен QR код!"]));
+        exit(json_encode(["status" => "SUCCESS", "message" => "Успешно обновен QR код!", "qr_generated_time" => $qr_generated_time]));
     }
     else {
         http_response_code(500);

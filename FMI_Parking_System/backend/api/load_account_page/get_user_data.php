@@ -36,7 +36,7 @@ try {
     $stmt->execute(["id" => $user_id]);
 
     $user_data = $stmt->fetch(PDO::FETCH_ASSOC); // only one row will be returned from the database since we filter our search by id which is unique
-    $user_data["qr_generated_time"] = strtotime( $user_data["qr_generated_time"]);
+    $user_data["qr_generated_time"] = strtotime( $user_data["qr_generated_time"]) - 3600;
     http_response_code(200);
     exit(json_encode(["status" => "SUCCESS", "data" => $user_data]));
 }
