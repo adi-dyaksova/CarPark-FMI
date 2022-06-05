@@ -12,7 +12,7 @@ body {
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
-	margin: -20px 0 50px;
+	margin: -20px 0 0px;
 }
 
 h1 {
@@ -32,11 +32,21 @@ p {
 	letter-spacing: 0.5px;
 	margin: 20px 0 30px;
 }
-
+header{
+	display: flex;
+	width: 55%;
+	align-items: center;
+	text-align: center;
+	padding: 2vh 5vw;
+}
+img{
+	width: 6vw;
+	margin-left: 2vw;
+}
 button {
 	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	border: 1px solid #FF416C;
+	background-color: #FF416C;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -46,7 +56,10 @@ button {
 	transition: transform 80ms ease-in;
     margin-top: 4vh;
 }
-
+button:hover{
+	background-color: #fa2e5d;
+	cursor: pointer;
+}
 button:active {
 	transform: scale(0.95);
 }
@@ -190,8 +203,8 @@ input, .custom-select {
 
 .overlay {
 	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: -webkit-linear-gradient(to right, #fa7d67, #FF416C);
+	background: linear-gradient(to right, #fa7d67, #FF416C);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;

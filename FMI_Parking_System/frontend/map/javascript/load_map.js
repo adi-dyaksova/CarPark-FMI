@@ -6,7 +6,7 @@ let zoneNames = {
     1: "A",
     2: "B",
     3: "C",
-    4: "D"
+    // 4: "D"
 }
 
 const startSelect = document.getElementById("start-time"); // select for start time of the time interval
@@ -25,10 +25,10 @@ for (let i = 0; i < maxOptions; i++) {
     endSelect.appendChild(opt);
 }
 
-const backBtn = document.getElementById("back-btn"); // get back button which will take user to the the account page
-backBtn.addEventListener('click', () => {
-    window.location.replace("../account/account_view.html");
-})
+// const backBtn = document.getElementById("back-btn"); // get back button which will take user to the the account page
+// backBtn.addEventListener('click', () => {
+//     window.location.replace("../account/account_view.html");
+// })
 
 // when the page is loaded, show the first slide and create the buttons for zone A
 showSlides(slideIndex);

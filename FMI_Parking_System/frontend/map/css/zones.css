@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
 * {
     box-sizing: border-box
 }
 
 body {
-    background: linear-gradient(to right top, #65dfc9, #6cdbeb);
-    font-family: Verdana, sans-serif;
+    background: linear-gradient(to right top, #ffa190, #ff9bb3);
 
     margin: 0;
     margin-top: 20px;
@@ -12,6 +13,10 @@ body {
 
     --red-color: #aa0428;
     --green-color: rgb(50, 131, 36);
+    font-family: 'Montserrat', sans-serif;
+    /* color variables used later in the code */
+
+
 }
 
 h2 {
@@ -76,6 +81,7 @@ input, select {
     color: white;
     font-weight: bold;
     font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
 
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
@@ -105,6 +111,7 @@ input, select {
     color: #970E53;
 
     font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
     padding: 8px 12px;
     bottom: 8px;
     width: 100%;

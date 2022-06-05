@@ -1,17 +1,16 @@
-/* import Roboto font */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 body {
     margin: 0;
     box-sizing: border-box;
 
     /* font of the page */
-    font-family: 'Roboto', sans-serif;
-
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
     /* color variables used later in the code */
-    --fontFrom: #65dfc9;
-    --fontTo: #6cdbeb;
-    --headerColor: #426696;
+    --fontFrom: #fa7d67;
+    --fontTo: #ff7595;
+    --headerColor: #000000;
     --accountColorFrom: rgba(255, 255, 255, 0.7);
     --accountColorTo: rgba(255, 255, 255, 0.3);
     --glassCircleColorFrom: rgba(255, 255, 255, 0.6);
@@ -25,7 +24,8 @@ body {
 main {
     min-height: 100vh;
 
-    background: linear-gradient(to right top, var(--fontFrom), var(--fontTo));
+    background: linear-gradient(to right bottom, #ffa190, #ff9bb3);
+    /* background: linear-gradient(to right top, var(--fontFrom), var(--fontTo)); */
 
     /* display: flex; */
     /* justify-content: center;
@@ -34,10 +34,11 @@ main {
 
 h3 {
     margin: 0;
-    font-weight: bolder;
-    font-size: larger;
+    /* font-weight: bolder; */
+    /* font-size: larger; */
     color: var(--headerColor);
     text-align: center;
+    font-size: medium;
 }
 
 p {
@@ -48,9 +49,11 @@ h4 {
     margin: 0;
 }
 
-input, button {
-    font-family: 'Roboto', sans-serif;
+input,
+button {
+    /* font-family: 'Roboto', sans-serif; */
     font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* account tab */
@@ -59,7 +62,7 @@ input, button {
     width: 100%;
     /* min-height: 80vh;
     max-height: 80vh; */
-    
+
     /* background: linear-gradient(to right bottom, var(--accountColorFrom), var(--accountColorTo)); */
 
     /* border-radius: 2rem; */
@@ -118,9 +121,11 @@ input, button {
     background: linear-gradient(to top left, var(--accountColorTo), var(--accountColorFrom));
 
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .option {
@@ -133,8 +138,8 @@ input, button {
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-
-    border-radius: 2rem;
+    margin-right: 1rem;
+    border-radius: 1rem;
 }
 
 .option:hover {
@@ -146,7 +151,7 @@ input, button {
 
 /* the logo of the university and the name of the system */
 .non-option {
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -154,20 +159,20 @@ input, button {
 }
 
 .non-option img {
-    width: 20%;
+    width: 40%;
     padding: 1em;
 }
 
-.non-option span > h3 {
+.non-option span>h3 {
     /* change color back to black for the non-options only */
     color: black;
     font-size: small;
 }
 
-#system-name {
+/* #system-name {
     max-width: 70%;
     text-align: center;
-}
+} */
 
 /* all tabs next to navbar */
 
@@ -181,7 +186,7 @@ input, button {
 } */
 
 /* my account tab */
-#account-tab > section{
+#account-tab>section {
 
     margin: auto;
     border-radius: 50px;
@@ -199,16 +204,16 @@ input, button {
 
 }
 
-#my-account-section {
-    /* make my account section cover 80% with no growing and shrinking */
-    /* flex: 1 0 20%; */
+/* #my-account-section { */
+/* make my account section cover 80% with no growing and shrinking */
+/* flex: 1 0 20%; */
 
-    /* moved to #account-tab > section */
-    /* margin: auto;
+/* moved to #account-tab > section */
+/* margin: auto;
     border-radius: 50px;
     width: 70%;
     min-height: 50vh; */
-}
+/* } */
 
 #my-account-header {
     flex-grow: 0;
@@ -230,13 +235,13 @@ input, button {
     margin: 0.5rem;
 }
 
-.user-info{
+.user-info {
     display: inline-block;
     width: 50%;
     /* text-align: left; */
 }
 
-.schedule-wrapper{
+.schedule-wrapper {
     display: inline-block;
     width: 49%;
 }
@@ -251,7 +256,7 @@ input, button {
     flex-grow: 0;
 }
 
-#qrcode{
+#qrcode {
     text-align: -webkit-center;
 }
 
@@ -261,7 +266,7 @@ input, button {
 
     /* width: 80%; */
     height: 38%;
-    
+
     box-sizing: border-box;
     overflow-y: auto;
     padding: 1rem;
@@ -333,7 +338,7 @@ input, button {
 
 #my-schedule-section {
     /* display: flex; is removed by some reason */
-    display: flex; 
+    display: flex;
     align-items: center;
     /* font-size: 1.5rem;
     flex: 1 0 70%;
@@ -365,7 +370,7 @@ input, button {
     font-weight: bolder;
 }
 
-#upload-file-form > *:not(:last-child) {
+#upload-file-form>*:not(:last-child) {
     margin-bottom: 1rem;
 }
 
@@ -379,10 +384,11 @@ input[type=file] {
     font-size: 1.5rem;
 }
 
-.button-section-wrapper{
+.button-section-wrapper {
     display: inline-block;
     width: 50%;
 }
+
 #button-section {
     /* display: flex;
     justify-content: space-evenly;
@@ -395,23 +401,23 @@ input[type=file] {
 }
 
 .button-style {
-    margin: 1%;
+
     border-radius: 1rem;
     border: none;
-
+    margin: 1rem 0.5rem;
     background: linear-gradient(to right top, var(--fontFrom), var(--fontTo));
 
     padding: 1rem;
     font-size: 1.2rem;
 
-    width: 80%;
+    width: 60%;
     height: 100%;
 
     filter: brightness(90%);
     cursor: pointer;
 }
 
-.schedule-data-section{
+.schedule-data-section {
     display: inline-block;
     width: 49%;
 }
@@ -419,7 +425,7 @@ input[type=file] {
 .button-style:hover {
     background: linear-gradient(to left top, var(--fontFrom), var(--fontTo));
     box-shadow: 0 0 1rem var(--accountColorFrom);
-    filter:brightness(95%);
+    filter: brightness(95%);
 }
 
 .active {
@@ -470,8 +476,10 @@ input[type=file] {
 }
 
 .show-popup {
-    -webkit-animation: fadeIn-Out 4s; /* Chrome and Safari */
-    -moz-animation: fadeIn-Out 4s; /* Mozilla */
+    -webkit-animation: fadeIn-Out 4s;
+    /* Chrome and Safari */
+    -moz-animation: fadeIn-Out 4s;
+    /* Mozilla */
     animation: fadeIn-Out 4s;
 }
 
@@ -480,27 +488,33 @@ input[type=file] {
     0% {
         opacity: 0;
     }
+
     37.5% {
         opacity: 1;
     }
+
     62.5% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
 }
-  
+
 @-webkit-keyframes fadeIn-Out {
     0% {
         opacity: 0;
     }
+
     37.5% {
         opacity: 1;
     }
+
     62.5% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
@@ -510,12 +524,15 @@ input[type=file] {
     0% {
         opacity: 0;
     }
+
     37.5% {
         opacity: 1;
     }
+
     62.5% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
