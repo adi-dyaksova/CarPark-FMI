@@ -32,7 +32,7 @@ for (let i = 0; i < maxOptions; i++) {
 
 // when the page is loaded, show the first slide and create the buttons for zone A
 showSlides(slideIndex);
-createSlotsButtons();
+// createSlotsButtons();
 
 // when the user has clicked one of the arrows on the slideshow (for previous or next slide), then change the current slide and put the new buttons for the new current zone slots
 function plusSlides(n) {

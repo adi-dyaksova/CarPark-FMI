@@ -16,8 +16,9 @@
 <body>
 
     <main>
-
-        <!-- Slideshow -->
+        <div class="left-right-wrapper">
+            <div class="left">
+                        <!-- Slideshow -->
         <div class="slideshow-container">
             <div class="mySlides fade" id="FZF">
                 <div id="Bbuttons">
@@ -51,7 +52,6 @@
                 <button class="space" id="A8">A<br>8</button>
                 <button class="space" id="A9">A<br>9</button>
                 <!-- <div class="numbertext">1 / 3</div> -->
-
             </div>
 
             <!-- Second slide -->
@@ -75,6 +75,16 @@
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
+            </div>
+            <div class="right">
+                <h2 class="text">Изберете зона</h2>
+                        <!-- Zone buttons -->
+        <div class="btn-container">
+            <img src="./images/zA.png" alt="btnA" class="btn" onclick="currentSlide(1)"></img>
+            <img src="./images/zB.png" alt="btnB" class="btn" onclick="currentSlide(2)"></img>
+            <img src="./images/zC.png" alt="btnC" class="btn" onclick="currentSlide(3)"></img>
+            <!-- <img src="./images/zD.png" alt="btnD" class="btn" onclick="currentSlide(4)"></img> -->
+        </div>
 
         <!-- Form for querying available places in a specific time period -->
         <form id="search-form">
@@ -93,9 +103,10 @@
                     <input type="date" name="date" id="date">
                 </div>
 
+                <div class="interval-wrapper">
                 <!-- The beggining of the time interval -->
                 <div class="form-item">
-                    <label for="start-time" class="text">Начало:</label>
+                    <label for="start-time" class="text">От:</label>
 
                     <!-- Its options are created dynamically -->
                     <select name="start-time" id="start-time">
@@ -104,12 +115,13 @@
 
                 <!-- The end of the time interval -->
                 <div class="form-item">
-                    <label for="end-time" class="text">Край:</label>
+                    <label for="end-time" class="text">До:</label>
 
                     <!-- Its options are created dynamically -->
                     <select name="end-time" id="end-time">
                     </select>
                 </div>
+            </div>
 
                 <!-- button "Търси" for submitting the form -->
                 <img src="images/search.png" class="search-btn">
@@ -124,14 +136,11 @@
             <div id="response">
             </div>
         </form>
-
-        <!-- Zone buttons -->
-        <div class="btn-container">
-            <img src="./images/zA.png" alt="btnA" class="btn" onclick="currentSlide(1)"></img>
-            <img src="./images/zB.png" alt="btnB" class="btn" onclick="currentSlide(2)"></img>
-            <img src="./images/zC.png" alt="btnC" class="btn" onclick="currentSlide(3)"></img>
-            <!-- <img src="./images/zD.png" alt="btnD" class="btn" onclick="currentSlide(4)"></img> -->
+            </div>
         </div>
+
+
+
 
         <!-- Response from the backend -->
         <div id="reservation-response">
@@ -161,9 +170,9 @@
     </div>
 
     <!-- "Назад" button -->
-    <!-- <aside>
+    <aside>
         <img src="images/back.png" class="search-btn" id="back-btn">
-    </aside> -->
+    </aside>
     <script>
         let buttons = document.querySelectorAll(".space");
 
