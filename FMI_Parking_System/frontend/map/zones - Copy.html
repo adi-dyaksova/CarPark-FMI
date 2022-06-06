@@ -14,10 +14,10 @@
 </head>
 
 <body>
-
     <main>
         <div class="left-right-wrapper">
             <div class="left">
+
                 <!-- Slideshow -->
                 <div class="slideshow-container">
 
@@ -91,10 +91,14 @@
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
                 </div>
             </div>
+
             <div class="right">
                 <h2 class="text">Изберете зона</h2>
                 <!-- Zone buttons -->
                 <div class="btn-container">
+
+                    <!--!! Да се сменят с бутони -->
+
                     <img src="./images/zA.png" alt="btnA" class="btn" onclick="currentSlide(1)"></img>
                     <img src="./images/zB.png" alt="btnB" class="btn" onclick="currentSlide(2)"></img>
                     <img src="./images/zC.png" alt="btnC" class="btn" onclick="currentSlide(3)"></img>
@@ -139,7 +143,12 @@
                         </div>
 
                         <!-- button "Търси" for submitting the form -->
+
+                        <!-- !! Да се смени с бутон -->
+
                         <img src="images/search.png" class="search-btn">
+                        
+                        <!-- !! Това какво е -->
 
                         <!-- <div id="search-params">
                     <h2 class="text">Избран времеви интервал</h2>
@@ -153,9 +162,6 @@
                 </form>
             </div>
         </div>
-
-
-
 
         <!-- Response from the backend -->
         <div id="reservation-response">
@@ -186,8 +192,11 @@
 
     <!-- "Назад" button -->
     <aside>
+        <!-- !! Да се смени с бутон -->
         <img src="images/back.png" class="search-btn" id="back-btn">
     </aside>
+
+    <!-- !! Да се махне като се оправи оцветяването на бутоните  -->
     <script>
         let buttons = document.querySelectorAll(".space");
 

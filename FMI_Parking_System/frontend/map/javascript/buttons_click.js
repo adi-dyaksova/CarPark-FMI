@@ -1,6 +1,7 @@
 /* define how the buttons for the slots react when they are pressed by the user */
 
 (function() {
+    // !! Това май не трябва да е просто буттонс след като вече има бутони и в катринките
     const buttons = document.getElementsByTagName("button"); // get all the buttons for the slots
 
     // for each button add a separate event listener

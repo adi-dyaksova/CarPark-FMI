@@ -3,14 +3,10 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible"
-        content="IE=edge" />
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet"
-        href="css/login_form_styles.css">
-  <script defer
-          src="javascript/send_user_data.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/login_form_styles.css">
+  <script defer src="javascript/send_user_data.js"></script>
   <title>Login</title>
 </head>
 
@@ -21,109 +17,83 @@
     <h2 id="system-name-header">Система за паркиране във ФМИ</h2>
     <img src="images/Logo.png" alt="Parking system logo">
   </header>
-  <div class="container"
-       id="container">
+  <div class="container" id="container">
+
     <div class="form-container sign-in-container">
+      
       <!-- log in form -->
       <form id="login-form">
         <h1>Вход в системата</h1>
+        
         <!-- email -->
-
-        <input type="email"
-               placeholder="Имейл"
-               required
-               name="email-login"
-               id="email">
+        <input type="email" placeholder="Имейл" required name="email-login" id="email">
 
         <!-- password -->
-        <input type="password"
-               placeholder="Парола"
-               required
-               name="password-login"
-               id="password">
-
+        <input type="password" placeholder="Парола" required name="password-login" id="password">
 
         <!-- submit button -->
-        <button type="submit"
-                id="login-button"
-                onclick="login()">Вход</button>
-
+        <button type="submit" id="login-button" onclick="login()">Вход</button>
 
         <!-- response when a field was incorrect -->
-        <div class="form-item no-show"
-             id="response-message">
+        <div class="form-item no-show" id="response-message">
         </div>
       </form>
     </div>
+
     <div class="form-container sign-up-container">
+      <!-- Registration form -->
       <form id="registration-form">
         <h1>Създай акаунт</h1>
 
-        <input type="text"
-               placeholder="Име"
-               autocomplete="off"
-               required
-               name="firstname"
-               id="firstname">
+        <!-- first name -->
+        <input type="text" placeholder="Име" autocomplete="off" required name="firstname" id="firstname">
 
-        <input type="text"
-               placeholder="Фамилия"
-               autocomplete="off"
-               required
-               name="lastname"
-               id="lastname">
+        <!-- last name -->
+        <input type="text" placeholder="Фамилия" autocomplete="off" required name="lastname" id="lastname">
 
-        <input type="email"
-               placeholder="Имейл"
-               required
-               name="email-register"
-               id="email">
+        <!-- email -->
+        <input type="email" placeholder="Имейл" required name="email-register" id="email">
 
-        <input type="password"
-               placeholder="Парола"
-               required
-               name="password-register"
-               id="password">
+        <!-- password -->
+        <input type="password" placeholder="Парола" required name="password-register" id="password">
 
-        <input type="password"
-               placeholder="Повторете паролата"
-               required
-               name="repeat_password"
-               id="repeat-password">
+        <!-- repeat password -->
+        <input type="password" placeholder="Повторете паролата" required name="repeat_password" id="repeat-password">
 
-        <select name="user_type"
-                id="user-type"
-                class="custom-select">
+        <!-- user type -->
+        <select name="user_type" id="user-type" class="custom-select">
           <option value="Щатен преподавател">Щатен преподавател</option>
           <option value="Хоноруван преподавател">Хоноруван преподавател</option>
-          <!-- <option value="Студент">Студент</option> -->
+          <!-- Да се махне <option value="Студент">Студент</option> -->
         </select>
 
-        <button type="submit"
-                id="register-button"
-                onclick="register()">Регистриране</button>
- 
-        <div class="form-item no-show"
-             id="response-message">
+        <!-- submit button -->
+        <button type="submit" id="register-button" onclick="register()">Регистриране</button>
+
+        <!-- response when a field was incorrect -->
+        <div class="form-item no-show" id="response-message">
         </div>
       </form>
     </div>
+
+    <!-- Slide part -->
     <div class="overlay-container">
       <div class="overlay">
+        <!-- Slide part - login -->
         <div class="overlay-panel overlay-left">
           <h1>Здравейте отново!</h1>
           <p>За да използвате функционалностите на системата, моля влезте във вашия профил.</p>
-          <button class="ghost"
-                  id="signIn">Вход</button>
+          <button class="ghost" id="signIn">Вход</button>
         </div>
+        <!-- Slide part - registration -->
         <div class="overlay-panel overlay-right">
           <h1>Здравейте!</h1>
           <p>Създайте своя профил в системата.</p>
-          <button class="ghost"
-                  id="signUp">Регистрация</button>
+          <button class="ghost" id="signUp">Регистрация</button>
         </div>
       </div>
     </div>
+
   </div>
 
 </body>

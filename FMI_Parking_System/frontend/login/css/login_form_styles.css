@@ -13,6 +13,17 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
 	margin: -20px 0 0px;
+
+	/* color variables used later in the code */
+	--buttons: #FF416C;
+	--buttonsHover: #FA2E5D;
+	--white: #FFFFFF;
+	--gradient1: #FA7D67;
+	--gradient2: #FF416C;
+	--responseMessage: #FF4D4D;
+	--responseMessageBox: #FF4D4DB3;
+	--mainContainerShadow1: #00000040;
+	--mainContainerShadow2: #00000038;
 }
 
 h1 {
@@ -32,6 +43,7 @@ p {
 	letter-spacing: 0.5px;
 	margin: 20px 0 30px;
 }
+
 header{
 	display: flex;
 	width: 55%;
@@ -39,15 +51,18 @@ header{
 	text-align: center;
 	padding: 2vh 5vw;
 }
+
 img{
 	width: 6vw;
 	margin-left: 2vw;
 }
+
+/* Buttons */
 button {
 	border-radius: 20px;
-	border: 1px solid #FF416C;
-	background-color: #FF416C;
-	color: #FFFFFF;
+	border: 1px solid var(--buttons);
+	background-color: var(--buttons);
+	color: var(--white);
 	font-size: 12px;
 	font-weight: bold;
 	padding: 12px 45px;
@@ -56,10 +71,12 @@ button {
 	transition: transform 80ms ease-in;
     margin-top: 4vh;
 }
+
 button:hover{
-	background-color: #fa2e5d;
+	background-color: var(--buttonsHover);
 	cursor: pointer;
 }
+
 button:active {
 	transform: scale(0.95);
 }
@@ -70,11 +87,12 @@ button:focus {
 
 button.ghost {
 	background-color: transparent;
-	border-color: #FFFFFF;
+	border-color: var(--white);
 }
 
+/* Form */
 form{
-	background-color: #FFFFFF;
+	background-color: var(--white);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -84,6 +102,7 @@ form{
 	text-align: center;
 }
 
+/* Form inputs */
 input, .custom-select {
 	background-color: #eee;
 	border: none;
@@ -92,11 +111,12 @@ input, .custom-select {
 	width: 100%;
 }
 
+/* Main container for login and registration */
 .container {
-	background-color: #fff;
+	background-color: var(--white);
 	border-radius: 10px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22);
+  	box-shadow: 0 14px 28px var(--mainContainerShadow1), 
+			0 10px 10px var(--mainContainerShadow2);
 	position: relative;
 	overflow: hidden;
 	width: 60vw;
@@ -111,14 +131,11 @@ input, .custom-select {
 	transition: all 0.6s ease-in-out;
 }
 
+/* Devide into two parts */
 .sign-in-container {
 	left: 0;
 	width: 50%;
 	z-index: 2;
-}
-
-.container.right-panel-active .sign-in-container {
-	transform: translateX(100%);
 }
 
 .sign-up-container {
@@ -128,6 +145,7 @@ input, .custom-select {
 	z-index: 1;
 }
 
+/* Registration to right */
 .container.right-panel-active .sign-up-container {
 	transform: translateX(100%);
 	opacity: 1;
@@ -135,22 +153,19 @@ input, .custom-select {
 	animation: show 0.6s;
 }
 
-
+/* Error message */
 #response-message {
     box-sizing: border-box;
     margin-top: 1.5rem;
     margin-bottom: 0;
     padding: 1rem;
-
-    background-color: rgb(255, 77, 77);
-    box-shadow: 0 0 1rem rgba(255, 77, 77, 0.7);
-
+    background-color: var(--responseMessage);
+    box-shadow: 0 0 1rem var(--responseMessageBox);
     justify-content: space-evenly;
 }
 
 #response-message span {
-    color: white;
-
+    color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -170,10 +185,6 @@ input, .custom-select {
     display: none !important;
 }
 
-#to-registration-btn button{
-	background-color: #f6f5f7;
-	color: #f6f5f7;
-}
 @keyframes show {
 	0%, 49.99% {
 		opacity: 0;
@@ -186,6 +197,7 @@ input, .custom-select {
 	}
 }
 
+/* Slider container */
 .overlay-container {
 	position: absolute;
 	top: 0;
@@ -197,28 +209,21 @@ input, .custom-select {
 	z-index: 100;
 }
 
-.container.right-panel-active .overlay-container{
-	transform: translateX(-100%);
-}
-
+/* Slider design */
 .overlay {
-	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #fa7d67, #FF416C);
-	background: linear-gradient(to right, #fa7d67, #FF416C);
+	background: var(--gradient2);
+	background: -webkit-linear-gradient(to right, var(--gradient1), var(--gradient2));
+	background: linear-gradient(to right, var(--gradient1), var(--gradient2));
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
-	color: #FFFFFF;
+	color: var(--white);
 	position: relative;
 	left: -100%;
 	height: 100%;
 	width: 200%;
   	transform: translateX(0);
 	transition: transform 0.6s ease-in-out;
-}
-
-.container.right-panel-active .overlay {
-  	transform: translateX(50%);
 }
 
 .overlay-panel {
@@ -234,6 +239,15 @@ input, .custom-select {
 	width: 50%;
 	transform: translateX(0);
 	transition: transform 0.6s ease-in-out;
+}
+
+/* Slider move */
+.container.right-panel-active .overlay-container{
+	transform: translateX(-100%);
+}
+
+.container.right-panel-active .overlay {
+  	transform: translateX(50%);
 }
 
 .overlay-left {

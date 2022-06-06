@@ -1,5 +1,5 @@
 function login() {
-    const inputs = document.querySelectorAll("input"); // all input fields
+    const inputs = document.querySelectorAll("input"); // all input fields from login form
     const form = document.getElementById("login-form"); // the login form
     const responseDiv = document.getElementById("response-message"); // div which will contain response message
 
@@ -14,7 +14,6 @@ function login() {
         inputs.forEach((input) => {
             data[input.name] = input.value;
         });
-
 
         // clear the contents from the previous message
         responseDiv.innerHTML = null;
@@ -156,7 +155,7 @@ function showDiv(div, message) {
     div.appendChild(messageContainer);
 }
 
-
+// slider movement
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
