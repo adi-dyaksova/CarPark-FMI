@@ -6,6 +6,11 @@ USE `parking_system`;
 -- Схема на данните от таблица `users`
 --
 
+--!--------------------------------------------
+-- !! Да се сменят примерните входини данни
+-- !! Да няма студент в примерните входини данни
+--!--------------------------------------------
+
 INSERT INTO `users` (`firstname`, `lastname`, `email`, `password`, `user_type`) VALUES
 ('Milen', 'Petrov', 'milenp@fmi.uni-sofia.bg', '$2y$10$0ScDEg9R.qswXt23FDKEuOKUDCLWtbAcjTbKGfk6A0HLpO.Z9u6Ge', 'Щатен преподавател'),
 ('Alexander', 'Stefanov', 'astef@fmi.uni-sofia.bg', '$2y$10$9O0BFAYgQzX2r5Cv5N3ejeS3OGC147qy6.CHnclLxOCUEyYBU8tQS', 'Хоноруван преподавател'),

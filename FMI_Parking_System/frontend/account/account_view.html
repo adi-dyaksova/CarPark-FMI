@@ -37,11 +37,9 @@
                 <!--  logo -->
                 <div class="non-option">
                     <img src="images/Logo.png" alt="Parking system logo">
-                    <!-- <img src="images/Sofia_University_Logo.png" alt="Sofia University Logo">
-                    <span id="system-name"><h3>Система за паркиране във ФМИ</h3></span>
-                    <img src="images/fmi-black.png" alt="FMI Logo"> -->
                 </div>
 
+                <!-- Navbar options -->
                 <div class="option" id="my-account">
                     <span>
                         <h3>Моят профил</h3>
@@ -53,7 +51,7 @@
                         <h3>Моят график</h3>
                     </span>
                 </div>
-                
+
                 <div class="option" id="my-qrcode">
                     <span>
                         <h3>QR код</h3>
@@ -72,20 +70,17 @@
                     </span>
                 </div>
 
-
-
                 <div class="option" id="log-out">
                     <span>
                         <h3>Изход</h3>
                     </span>
                 </div>
-
             </nav>
 
             <!-- My Account tab -->
             <section id="my-account-section">
 
-                <!-- The tab header -->
+                <!-- The section header -->
                 <header id="my-account-header">
                     <h1>Моят профил</h1>
                 </header>
@@ -93,19 +88,22 @@
                 <!-- The content of the tab -->
                 <article id="account-details">
                     <div class="user-info">
-                        <!-- User picture (for now it is a static one) -->
+                        <!-- User picture -->
                         <div id="user-picture">
                             <img src="images/Profil_photo.png" alt="user-picture">
                         </div>
 
+                        <!-- User data -->
                         <p id="firstname"><strong>Име: </strong></p>
                         <p id="lastname"><strong>Фамилия: </strong></p>
                         <p id="email"><strong>Имейл: </strong></p>
                         <p id="user-type"><strong>Тип потребител: </strong></p>
                     </div>
 
+                    <!-- Schedule part -->
                     <div class="schedule-wrapper">
-                        <p><strong>График за днес: </strong></p>
+                        <!-- Schedule title -->
+                        <p><strong>График за дненя: </strong></p>
 
                         <!-- The schedule of the user for today-->
                         <div class="schedule">
@@ -113,21 +111,6 @@
                     </div>
                 </article>
 
-            </section>
-            <!-- QR code section -->
-            <section id="my-qrcode-section" class="no-display">
-                <button id="display-qr-btn" onclick="displayQR()" class="button-style "> Покажи QR код</button>
-                <button id="hide-qr-btn" onclick="hideQR() " class="button-style no-display"> Скрий QR код</button>
-                <div id="qrcode" class="no-display"></div>
-                <div id="expired-qr-msg" class="no-display">Вашият QR е изтекъл. Натиснете долния бутон, за да се
-                    генерира нов QR код.</div>
-                <button id="new-qr-btn" onclick="get_new_qr()" class="button-style no-display">Генерирай нов QR
-                    код</button>
-            </section>
-
-            <!-- Map of all parking zones -->
-            <section id="parking-zones-section" class="no-display">
-                <img src="images/map.png" alt="map showing all the zones">
             </section>
 
             <!-- Upload schedule tab -->
@@ -163,6 +146,11 @@
                         </header>
 
                         <article id="upcoming-schedule">
+
+                            <!-- --!-------------------------------- -->
+                            <!-- !! Това защо е закоментирано -->
+                            <!-- --!-------------------------------- -->
+                            
                             <!-- <div class="schedule schedule-item">
                             <span><h4>Лекция: Приложен човеко-машинен интерфейс</h4></span>
                             <span><p>10.06.2021, 12:00-14:00, ФХФ</p></span>
@@ -187,11 +175,23 @@
                 </section>
 
             </section>
-    </main>
 
-    <!-- background glass circles -->
-    <div class="glass-circle" id="top-glass-circle"></div>
-    <div class="glass-circle" id="bottom-glass-circle"></div>
+            <!-- QR code section -->
+            <section id="my-qrcode-section" class="no-display">
+                <button id="display-qr-btn" onclick="displayQR()" class="button-style "> Покажи QR код</button>
+                <button id="hide-qr-btn" onclick="hideQR() " class="button-style no-display"> Скрий QR код</button>
+                <div id="qrcode" class="no-display"></div>
+                <div id="expired-qr-msg" class="no-display">Вашият QR е изтекъл. Натиснете долния бутон, за да се
+                    генерира нов QR код.</div>
+                <button id="new-qr-btn" onclick="get_new_qr()" class="button-style no-display">Генерирай нов QR
+                    код</button>
+            </section>
+
+            <!-- Map of all parking zones -->
+            <section id="parking-zones-section" class="no-display">
+                <img src="images/map.png" alt="map showing all the zones">
+            </section>
+    </main>
 </body>
 
 </html>

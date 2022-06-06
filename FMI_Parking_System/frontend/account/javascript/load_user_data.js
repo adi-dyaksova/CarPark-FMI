@@ -29,6 +29,7 @@ function getUserData() {
     })
 }
 
+//Assign user data
 function renderUserData(data) {
     const firstnamePar = document.getElementById("firstname");
     const lastnamePar = document.getElementById("lastname");

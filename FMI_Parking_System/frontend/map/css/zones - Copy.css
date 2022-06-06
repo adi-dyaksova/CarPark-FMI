@@ -51,7 +51,7 @@ input, select {
 }
 .space{
     position: absolute; 
-    background-color: blue;
+    background-color: #d2b2adff;
 }
 #A0{
     top:49%;
@@ -130,70 +130,112 @@ input, select {
 }
 #B0{
     top:58.7%;
-    left:1.5%;
+    left:2%;
     width:5.5%;
     height: 16%;
     font-size:large;
 }
 #B1{
     top:58.7%;
-    left:9.5%;
+    left:8%;
     width:5.5%;
     height: 16%;
     font-size:large;
 }
 #B2{
     top:58.7%;
-    left:15.5%;
+    left:14%;
     width:5.5%;
     height: 16%;
     font-size:large;
 }
 #B3{
     top:58.7%;
-    left:21.5%;
+    left:20%;
     width:5.5%;
     height: 16%;
     font-size:large;
 }
 #B4{
     top:58.7%;
-    left:27.5%;
+    left:26%;
     width:5.5%;
     height: 16%;
     font-size:large;
 }
 #B5{
     top:58.7%;
-    left:33.5%;
+    left:32%;
     width:5.5%;
     height: 16%;
     font-size:large;
 }
 #B6{
     top:58.7%;
-    left:39.5%;
+    left:38%;
     width:5.5%;
     height: 16%;
     font-size:large;
 }
 #B7{
     top:58.7%;
-    left:45.5%;
+    left:44%;
     width:5.5%;
     height: 16%;
     font-size:large;
 }
 #B8{
     top:58.7%;
-    left:51.5%;
+    left:50%;
     width:5.5%;
     height: 16%;
     font-size:large;
 }
 #B9{
     top:58.7%;
+    left:56%;
+    width:5.5%;
+    height: 16%;
+    font-size:large;
+}
+#B10{
+    top:83.6%;
+    left:51%;
+    width:5.5%;
+    height: 16%;
+    font-size:large;
+}
+#B11{
+    top:83.6%;
     left:57.5%;
+    width:5.5%;
+    height: 16%;
+    font-size:large;
+}
+#B12{
+    top:83.6%;
+    left:64%;
+    width:5.5%;
+    height: 16%;
+    font-size:large;
+}
+#B13{
+    top:83.6%;
+    left:70.5%;
+    width:5.5%;
+    height: 16%;
+    font-size:large;
+}
+#B14{
+    top:83.6%;
+    left:77%;
+    width:5.5%;
+    height: 16%;
+    font-size:large;
+}
+#B15{
+    top:83.6%;
+    left:83.5%;
     width:5.5%;
     height: 16%;
     font-size:large;
@@ -203,7 +245,132 @@ input, select {
     background-repeat: no-repeat;
     background-size: 100% 105%;
 }
-
+#C0{
+    top:48%;
+    left:7%;
+    width:7%;
+    height: 21%;
+    font-size:x-large;
+}
+#C1{
+    top:48%;
+    left:15%;
+    width:7%;
+    height: 21%;
+    font-size:x-large;
+}
+#C2{
+    top:48%;
+    left:23%;
+    width:7%;
+    height: 21%;
+    font-size:x-large;
+}
+#C3{
+    top:48%;
+    left:31%;
+    width:7%;
+    height: 21%;
+    font-size:x-large;
+}
+#C4{
+    top:48%;
+    left:39%;
+    width:7%;
+    height:21%;
+    font-size:x-large;
+}
+#C5{
+    top:48%;
+    left:47%;
+    width:7%;
+    height: 21%;
+    font-size:x-large;
+}
+#C6{
+    top:48%;
+    left:55%;
+    width:7%;
+    height: 21%;
+    font-size:x-large;
+}
+#C7{
+    top:80.5%;
+    left:7%;
+    width:7%;
+    height: 19%;
+    font-size:x-large;
+}
+#C8{
+    top:80.5%;
+    left:15%;
+    width:7%;
+    height: 19%;
+    font-size:x-large;
+}
+#C9{
+    top:80.5%;
+    left:23%;
+    width:7%;
+    height: 19%;
+    font-size:x-large;
+}
+#C10{
+    top:80.5%;
+    left:31%;
+    width:7%;
+    height: 19%;
+    font-size:x-large;
+}
+#C11{
+    top:80.5%;
+    left:39%;
+    width:7%;
+    height: 19%;
+    font-size:x-large;
+}
+#C12{
+    top:80.5%;
+    left:47%;
+    width:7%;
+    height: 19%;
+    font-size:x-large;
+}
+#C13{
+    top:80.5%;
+    left:55%;
+    width:7%;
+    height: 19%;
+    font-size:x-large;
+}
+#C14{
+    top:81%;
+    left:70.5%;
+    width:7%;
+    height: 18.5%;
+    font-size:x-large;
+}
+#C15{
+    top:81%;
+    left:78%;
+    width:7%;
+    height: 18.5%;
+    font-size:x-large;
+}
+#C16{
+    top:81%;
+    left:85.5%;
+    width:6.5%;
+    height: 18.5%;
+    font-size:x-large;
+}
+#C17{
+    top:81%;
+    left:92.5%;
+    width:6.5%;
+    height: 18.5%;
+    font-size:x-large;
+}
 #FHF{
     background-image: url("../images/fhf1.png");
     background-repeat: no-repeat;

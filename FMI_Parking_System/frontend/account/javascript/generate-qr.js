@@ -29,7 +29,7 @@ function displayQR() {
                 console.log("db time");
                 console.log(qr_generated_time_seconds);
                 if(user_type == "Хоноруван преподавател" && curr_time_seconds - qr_generated_time_seconds > qr_max_seconds){
-                    // Show message if QR code has expired
+                    //Show message if QR code has expired
                     console.log("expired");
                     qrcode_el.innerHTML = null;
                     expired_qr_msg.classList.remove("no-display");
@@ -38,7 +38,7 @@ function displayQR() {
                 }
                 else{
                   
-                    //display QR code if it is valid
+                    //Display QR code if it is valid
                     if(!expired_qr_msg.classList.contains("no-display")){
                         expired_qr_msg.classList.add("no-display");
                     }
@@ -57,7 +57,8 @@ function displayQR() {
                 }
             
         }
-        else if (userData["status"] == "UNAUTHENTICATED") { // if there is no session or cookies, return the user to the login page
+        else if (userData["status"] == "UNAUTHENTICATED") { 
+            // if there is no session or cookies, return the user to the login page
             window.location.replace("../login/login_form.html");
         }
         else {
@@ -172,5 +173,3 @@ function hideQR(){
     display_qr_btn.classList.remove("no-display");
     hide_qr_btn.classList.add("no-display");
 }
-
-

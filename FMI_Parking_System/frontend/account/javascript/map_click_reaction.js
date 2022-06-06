@@ -1,6 +1,7 @@
 /* when the user clicks on the map to zoom-in, add class zoom-in-effect to make this happen
    and then after the user clicks again this time to zoom-out, remove the zoom-in-effect and add class zoom-out-effect */
 
+   // !! Ако се махне зуума и това да се махне 
 (function() {
     const map = document.querySelector("#parking-zones-section img");
 

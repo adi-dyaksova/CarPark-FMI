@@ -3,11 +3,11 @@
 body {
     margin: 0;
     box-sizing: border-box;
-
-    /* font of the page */
-    /* font-family: 'Roboto', sans-serif; */
     font-family: 'Montserrat', sans-serif;
+
     /* color variables used later in the code */
+    --backgroundGradient1: #ffa190;
+    --backgroundGradient2: #ff9bb3;
     --fontFrom: #fa7d67;
     --fontTo: #ff7595;
     --headerColor: #000000;
@@ -23,19 +23,11 @@ body {
 
 main {
     min-height: 100vh;
-
-    background: linear-gradient(to right bottom, #ffa190, #ff9bb3);
-    /* background: linear-gradient(to right top, var(--fontFrom), var(--fontTo)); */
-
-    /* display: flex; */
-    /* justify-content: center;
-    align-items: center; */
+    background: linear-gradient(to right bottom, var(--backgroundGradient1), var(--backgroundGradient2));
 }
 
 h3 {
     margin: 0;
-    /* font-weight: bolder; */
-    /* font-size: larger; */
     color: var(--headerColor);
     text-align: center;
     font-size: medium;
@@ -51,32 +43,24 @@ h4 {
 
 input,
 button {
-    /* font-family: 'Roboto', sans-serif; */
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
 }
 
-/* account tab */
 
+/* account tab */
 #account-tab {
     width: 100%;
-    /* min-height: 80vh;
-    max-height: 80vh; */
-
-    /* background: linear-gradient(to right bottom, var(--accountColorFrom), var(--accountColorTo)); */
-
-    /* border-radius: 2rem; */
-
-    /* make it appear in front of the glass circles */
     position: absolute;
-    z-index: 2;
-
-    /* blur background glass circles */
-    backdrop-filter: blur(1rem);
-
     display: block;
     justify-content: space-between;
 }
+
+/* 
+--!--------------------------------
+!! Да се изтрие ако не трябва
+--!--------------------------------
+*/
 
 /* glass circles */
 
@@ -115,11 +99,8 @@ button {
 #options-menu {
     /* make the options tab take up 30% of the account tab's space with no growing and shrinking */
     flex: 1 0 30%;
-
-    /* border-radius: 2rem; */
     border-radius: 0;
     background: linear-gradient(to top left, var(--accountColorTo), var(--accountColorFrom));
-
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -131,9 +112,7 @@ button {
 .option {
     /* take up all the option menu's width */
     width: 100%;
-
     cursor: pointer;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -144,12 +123,11 @@ button {
 
 .option:hover {
     background: var(--optionHoverColor);
-
     /* make the background transition 1 second */
     transition: 1s;
 }
 
-/* the logo of the university and the name of the system */
+/* the logo of the system */
 .non-option {
     width: 80%;
     display: flex;
@@ -163,11 +141,12 @@ button {
     padding: 1em;
 }
 
-.non-option span>h3 {
-    /* change color back to black for the non-options only */
-    color: black;
-    font-size: small;
-}
+
+/* 
+--!--------------------------------
+!! Да се изтрие ако не трябва
+--!--------------------------------
+*/
 
 /* #system-name {
     max-width: 70%;
@@ -187,22 +166,23 @@ button {
 
 /* my account tab */
 #account-tab>section {
-
     margin: auto;
     border-radius: 50px;
     width: 70%;
-    /* min-height: 50vh; */
-
-
     background: linear-gradient(to right bottom, var(--accountColorFrom), var(--accountColorTo));
     display: block;
     padding: 2%;
     text-align: center;
     margin-top: 3%;
-
-
-
 }
+
+
+/* 
+--!--------------------------------
+!! Да се изтрие ако не трябва
+--!--------------------------------
+*/
+
 
 /* #my-account-section { */
 /* make my account section cover 80% with no growing and shrinking */
@@ -314,11 +294,18 @@ button {
     border-radius: 0.5rem;
 }
 
+
+/* 
+--!--------------------------------
+!! Да се оправи или изтрие
+--!--------------------------------
+*/
+
 .zoom-in-effect {
     cursor: zoom-out !important;
 
     /* translate the image to the left and scale it so that it gets bigger when pressed (zooming effect) */
-    transform: translateX(-9rem) scale(2, 1.5);
+    transform: translateX(-9rem) scale(2, 2);
 
     /* make transform do its job for 1 second */
     transition: transform 1s;
@@ -376,7 +363,6 @@ button {
 
 #csv {
     max-width: 65%;
-
     flex: 1 0 20%;
 }
 
