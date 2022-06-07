@@ -14,7 +14,7 @@ if (strlen($data) > 0 && check_json($data)) {
 }
 else {
     http_response_code(400);
-    exit(json_encode(["status" => "ERROR", "message" => "Невалиден JSON формат!"]));
+    exit(json_encode(["status" => "ERROR", "message" => "Invalid JSON format!"]));
 }
 
 $email = $user_data["email-login"]; // get input email
