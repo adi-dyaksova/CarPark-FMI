@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 body {
@@ -14,8 +14,17 @@ body {
     /* color variables used later in the code */
     --red-color: #AA0428;
     --green-color: #328324;
+     --accountColorFrom: rgba(255, 255, 255, 0.7);
+    --accountColorTo: rgba(255, 255, 255, 0.3);
 }
-
+main{
+    background: linear-gradient(to top left, var(--accountColorTo), var(--accountColorFrom));
+    margin-left: 5%;
+    padding: 2rem;
+    width:90%;
+    border-radius: 20px;
+    padding-top: 4rem;
+}
 h2 {
     margin: 0;
 }
@@ -51,6 +60,7 @@ select {
 .space {
     position: absolute;
     background-color: #D2B2ADFF;
+    cursor: pointer;
 }
 
 /* Zone A parking slots */
@@ -498,14 +508,14 @@ select {
 /* Caption text */
 
 .text {
-    color: #970E53;
+    color: #313131;
     font-size: 25px;
     font-family: 'Montserrat', sans-serif;
     padding: 8px 12px;
     bottom: 8px;
     width: 100%;
     text-align: center;
-    text-shadow: 1px 1px #3B3A3A;
+    /* text-shadow: 1px 1px #3B3A3A; */
     filter: brightness(145%);
 }
 
@@ -543,11 +553,15 @@ select {
     margin-left: 0.8rem;
     width: 40%;
 }
-
+#to-search{
+    margin-top: 1rem;
+}
 #back-btn {
     position: fixed;
-    bottom: 3rem;
-    left: 3rem;
+    top: 2.5rem;
+    left: 5rem;
+    width: 4rem;
+    height: auto;
 }
 
 .slots-container {
