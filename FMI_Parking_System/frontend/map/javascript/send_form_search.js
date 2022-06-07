@@ -1,4 +1,4 @@
-/* when the user submits the form for the searched interval, send q query to the backend to recieve the non-taken, taken and unavailable slots */
+/* when the user submits the form for the searched interval, send q query to the backend to receive the non-taken, taken and unavailable slots */
 
 (function() {
 

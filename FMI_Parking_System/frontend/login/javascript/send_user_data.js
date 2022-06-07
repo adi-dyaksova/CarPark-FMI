@@ -1,5 +1,5 @@
 function login() {
-    const inputs = document.querySelectorAll("input"); // all input fields
+    const inputs = document.querySelectorAll("input"); // all input fields from login form
     const form = document.getElementById("login-form"); // the login form
     const responseDiv = document.getElementById("response-message"); // div which will contain response message
 
@@ -73,6 +73,7 @@ function createErrorDivContent(div, response) {
 }
 
 function register() {
+
     const form = document.getElementById("registration-form"); // the registration form
     const inputs = document.querySelectorAll("input, select"); // the input fields and the select one
     const responseDiv = document.getElementById("response-message"); // the div that will contain the error message if the backend returned an error
@@ -92,16 +93,23 @@ function register() {
             data[input.name] = input.value;
         })
 
+        console.log(data);
+
         sendFormData(data)
         .then((responseMessage) => {
             if (responseMessage["status"] === "ERROR") {
+                console.log("if: ");
+                console.log(responseMessage);
                 throw new Error(responseMessage["message"]);
             }
             else {
+                console.log("else: ");
+                console.log(responseMessage);
                 window.location.replace("../account/account_view.html"); // redirect user to his newly created account
             }
         })
         .catch((errorMsg) => {
+            console.log(errorMsg);
             showDiv(responseDiv, errorMsg); // create an error message if the server returned an error
         })
     })
@@ -147,7 +155,7 @@ function showDiv(div, message) {
     div.appendChild(messageContainer);
 }
 
-
+// slider movement
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');

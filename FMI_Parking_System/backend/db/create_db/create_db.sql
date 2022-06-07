@@ -60,6 +60,10 @@ CREATE TABLE `schedules` (
 -- Структура на таблица `slots`
 --
 
+--!--------------------------------------------
+-- !! Да се махне lecturer_only
+--!--------------------------------------------
+
 CREATE TABLE `slots` (
   `id` int(11) PRIMARY KEY AUTO_INCREMENT,
   `code` int(1) NOT NULL,
@@ -70,6 +74,11 @@ CREATE TABLE `slots` (
 --
 -- Схема на данните от таблица `slots`
 --
+
+--!--------------------------------------------
+-- !! Да се махне lecturer_only
+-- !! Да се допишат всички слотове
+--!--------------------------------------------
 
 INSERT INTO `slots` (`code`, `zone`, `lecturer_only`) VALUES
 (0, 'A', 1),
@@ -98,8 +107,6 @@ INSERT INTO `slots` (`code`, `zone`, `lecturer_only`) VALUES
 (13, 'B', 0),
 (14, 'B', 0),
 (15, 'B', 0),
-(16, 'B', 0),
-(17, 'B', 0),
 (0, 'C', 0),
 (1, 'C', 0);
 -- (33, 0, 'D', 0),
@@ -138,6 +145,11 @@ CREATE TABLE `user_schedules` (
   `user_id` int(10) UNSIGNED NOT NULL,
   `schedule_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+--!--------------------------------------------
+-- !! Да се прегледат кое трябва да остане
+--!--------------------------------------------
 
 --
 -- Indexes for dumped tables

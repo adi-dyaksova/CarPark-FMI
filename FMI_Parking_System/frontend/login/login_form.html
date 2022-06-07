@@ -3,158 +3,97 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible"
-        content="IE=edge" />
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet"
-        href="css/login_form_styles.css">
-  <script defer
-          src="javascript/send_user_data.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/login_form_styles.css">
+  <script defer src="javascript/send_user_data.js"></script>
   <title>Login</title>
 </head>
 
 <body>
 
-  <!-- log in page header -->
+  <!-- log in and register page header-->
   <header>
     <h2 id="system-name-header">Система за паркиране във ФМИ</h2>
+    <img src="images/Logo.png" alt="Parking system logo">
   </header>
-  <div class="container"
-       id="container">
+  <div class="container" id="container">
+
     <div class="form-container sign-in-container">
+      
       <!-- log in form -->
       <form id="login-form">
         <h1>Вход в системата</h1>
+        
         <!-- email -->
-        <!-- <div class="form-item"> -->
-        <!-- <label for="email"><span>Имейл:</span></label> -->
-        <input type="email"
-               placeholder="Имейл"
-               required
-               name="email-login"
-               id="email">
-        <!-- </div> -->
+        <input type="email" placeholder="Имейл" required name="email-login" id="email">
 
         <!-- password -->
-        <!-- <div class="form-item"> -->
-        <!-- <label for="password"><span>Парола:</span></label> -->
-        <input type="password"
-               placeholder="Парола"
-               required
-               name="password-login"
-               id="password">
-        <!-- </div> -->
+        <input type="password" placeholder="Парола" required name="password-login" id="password">
 
         <!-- submit button -->
-        <!-- <div class="form-item button-container"> -->
-        <button type="submit"
-                id="login-button"
-                onclick="login()">Вход</button>
-        <!-- </div> -->
+        <button type="submit" id="login-button" onclick="login()">Вход</button>
 
         <!-- response when a field was incorrect -->
-        <div class="form-item no-show"
-             id="response-message">
+        <div class="form-item no-show" id="response-message">
         </div>
       </form>
     </div>
+
     <div class="form-container sign-up-container">
+      <!-- Registration form -->
       <form id="registration-form">
         <h1>Създай акаунт</h1>
-        <!-- First name -->
-        <!-- <div class="form-item"> -->
-        <!-- <label for="firstname"><span>Име:</span></label> -->
-        <input type="text"
-               placeholder="Име"
-               autocomplete="off"
-               required
-               name="firstname"
-               id="firstname">
-        <!-- </div> -->
 
-        <!-- Family name -->
-        <!-- <div class="form-item"> -->
-        <!-- <label for="lastname"><span>Фамилия:</span></label> -->
-        <input type="text"
-               placeholder="Фамилия"
-               autocomplete="off"
-               required
-               name="lastname"
-               id="lastname">
-        <!-- </div> -->
+        <!-- first name -->
+        <input type="text" placeholder="Име" autocomplete="off" required name="firstname" id="firstname">
 
-        <!-- E-mail -->
-        <!-- <div class="form-item"> -->
-        <!-- <label for="email"><span>Имейл:</span></label> -->
-        <input type="email"
-               placeholder="Имейл"
-               required
-               name="email-register"
-               id="email">
-        <!-- </div> -->
+        <!-- last name -->
+        <input type="text" placeholder="Фамилия" autocomplete="off" required name="lastname" id="lastname">
 
-        <!-- Password -->
-        <!-- <div class="form-item"> -->
-        <!-- <label for="password"><span>Парола:</span></label> -->
-        <input type="password"
-               placeholder="Парола"
-               required
-               name="password-register"
-               id="password">
-        <!-- </div> -->
+        <!-- email -->
+        <input type="email" placeholder="Имейл" required name="email-register" id="email">
 
-        <!-- Repeated password -->
-        <!-- <div class="form-item"> -->
-        <!-- <label for="repeat-password"><span>Повторете паролата:</span></label> -->
-        <input type="password"
-               placeholder="Повторете паролата"
-               required
-               name="repeat_password"
-               id="repeat-password">
-        <!-- </div> -->
+        <!-- password -->
+        <input type="password" placeholder="Парола" required name="password-register" id="password">
 
-        <!-- User type -->
-        <!-- <div class="form-item"> -->
-        <!-- <label for="user-type"><span>Тип:</span></label> -->
-        <select name="user_type"
-                id="user-type"
-                class="custom-select">
+        <!-- repeat password -->
+        <input type="password" placeholder="Повторете паролата" required name="repeat_password" id="repeat-password">
+
+        <!-- user type -->
+        <select name="user_type" id="user-type" class="custom-select">
           <option value="Щатен преподавател">Щатен преподавател</option>
           <option value="Хоноруван преподавател">Хоноруван преподавател</option>
-          <option value="Студент">Студент</option>
+          <!-- Да се махне <option value="Студент">Студент</option> -->
         </select>
-        <!-- </div> -->
 
-        <!-- Submit button -->
-        <!-- <div class="form-item button-container"> -->
-        <button type="submit"
-                id="register-button"
-                onclick="register()">Регистриране</button>
-        <!-- </div> -->
+        <!-- submit button -->
+        <button type="submit" id="register-button" onclick="register()">Регистриране</button>
 
-        <!-- Response message -->
-        <div class="form-item no-show"
-             id="response-message">
+        <!-- response when a field was incorrect -->
+        <div class="form-item no-show" id="response-message">
         </div>
       </form>
     </div>
+
+    <!-- Slide part -->
     <div class="overlay-container">
       <div class="overlay">
+        <!-- Slide part - login -->
         <div class="overlay-panel overlay-left">
           <h1>Здравейте отново!</h1>
           <p>За да използвате функционалностите на системата, моля влезте във вашия профил.</p>
-          <button class="ghost"
-                  id="signIn">Вход</button>
+          <button class="ghost" id="signIn">Вход</button>
         </div>
+        <!-- Slide part - registration -->
         <div class="overlay-panel overlay-right">
           <h1>Здравейте!</h1>
           <p>Създайте своя профил в системата.</p>
-          <button class="ghost"
-                  id="signUp">Регистрация</button>
+          <button class="ghost" id="signUp">Регистрация</button>
         </div>
       </div>
     </div>
+
   </div>
 
 </body>
