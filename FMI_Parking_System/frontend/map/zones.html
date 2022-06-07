@@ -16,42 +16,45 @@
 <body>
 
     <main>
+        
         <!-- Slideshow -->
         <div class="slideshow-container">
 
             <!-- First slide -->
             <div class="mySlides fade">
-                <div class="numbertext">1 / 4</div>
-                <img src="./images/azone.png" class="zoomedZones border" alt="zoneA">
-                <div class="text">ФМИ заден вход</div>
+                <div class="text">ФМИ</div>
+                <img src="./images/fmi.png" class="zoomedZones border" alt="zoneA">
+
+                <div class="numbertext">1 / 3</div>
+
             </div>
-    
+
             <!-- Second slide -->
             <div class="mySlides fade">
-                <div class="numbertext">2 / 4</div>
-                <img src="./images/bzone.png" class="zoomedZones border" alt="zoneB">
                 <div class="text">ФзФ</div>
+                <img src="./images/fzf.png" class="zoomedZones border" alt="zoneB">
+                <div class="numbertext">2 / 3</div>
             </div>
-    
+
             <!-- Third slide -->
             <div class="mySlides fade">
-                <div class="numbertext">3 / 4</div>
-                <img src="./images/czone.png" class="zoomedZones border" alt="zoneC">
                 <div class="text">ФХФ</div>
+                <img src="./images/fhf.png" class="zoomedZones border" alt="zoneC">
+                <div class="numbertext">3 / 3</div>
             </div>
-    
+
             <!-- Fourth slide -->
-            <div class="mySlides fade">
+            <!-- <div class="mySlides fade">
                 <div class="numbertext">4 / 4</div>
                 <img src="./images/dzone.png" class="zoomedZones border" alt="zoneD">
                 <div class="text">ФМИ главен вход</div>
-            </div>
-    
+            </div> -->
+
             <!-- Pointers for next and previous slide -->
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
-    
+
         <!-- Form for querying available places in a specific time period -->
         <form id="search-form">
 
@@ -68,7 +71,7 @@
                     <label for="date" class="text">Дата:</label>
                     <input type="date" name="date" id="date">
                 </div>
-    
+
                 <!-- The beggining of the time interval -->
                 <div class="form-item">
                     <label for="start-time" class="text">Начало:</label>
@@ -77,7 +80,7 @@
                     <select name="start-time" id="start-time">
                     </select>
                 </div>
-    
+
                 <!-- The end of the time interval -->
                 <div class="form-item">
                     <label for="end-time" class="text">Край:</label>
@@ -86,7 +89,7 @@
                     <select name="end-time" id="end-time">
                     </select>
                 </div>
-    
+
                 <!-- button "Търси" for submitting the form -->
                 <img src="images/search.png" class="search-btn">
 
@@ -100,15 +103,15 @@
             <div id="response">
             </div>
         </form>
-    
+
         <!-- Zone buttons -->
         <div class="btn-container">
             <img src="./images/zA.png" alt="btnA" class="btn" onclick="currentSlide(1)"></img>
             <img src="./images/zB.png" alt="btnB" class="btn" onclick="currentSlide(2)"></img>
             <img src="./images/zC.png" alt="btnC" class="btn" onclick="currentSlide(3)"></img>
-            <img src="./images/zD.png" alt="btnD" class="btn" onclick="currentSlide(4)"></img>
+            <!-- <img src="./images/zD.png" alt="btnD" class="btn" onclick="currentSlide(4)"></img> -->
         </div>
-    
+
         <!-- Response from the backend -->
         <div id="reservation-response">
         </div>
@@ -137,9 +140,9 @@
     </div>
 
     <!-- "Назад" button -->
-    <aside>
-        <img src="images/back.png" class="search-btn" id="back-btn">  
-    </aside>  
+    <!-- <aside>
+        <img src="images/back.png" class="search-btn" id="back-btn">
+    </aside> -->
 </body>
 
 </html>

@@ -1,17 +1,16 @@
-/* import Roboto font */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 body {
     margin: 0;
     box-sizing: border-box;
-
-    /* font of the page */
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 
     /* color variables used later in the code */
-    --fontFrom: #65dfc9;
-    --fontTo: #6cdbeb;
-    --headerColor: #426696;
+    --backgroundGradient1: #ffa190;
+    --backgroundGradient2: #ff9bb3;
+    --fontFrom: #fa7d67;
+    --fontTo: #ff7595;
+    --headerColor: #000000;
     --accountColorFrom: rgba(255, 255, 255, 0.7);
     --accountColorTo: rgba(255, 255, 255, 0.3);
     --glassCircleColorFrom: rgba(255, 255, 255, 0.6);
@@ -23,20 +22,14 @@ body {
 
 main {
     min-height: 100vh;
-
-    background: linear-gradient(to right top, var(--fontFrom), var(--fontTo));
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: linear-gradient(to right bottom, var(--backgroundGradient1), var(--backgroundGradient2));
 }
 
 h3 {
     margin: 0;
-    font-weight: bolder;
-    font-size: larger;
     color: var(--headerColor);
     text-align: center;
+    font-size: medium;
 }
 
 p {
@@ -47,105 +40,95 @@ h4 {
     margin: 0;
 }
 
-input, button {
-    font-family: 'Roboto', sans-serif;
+input,
+button {
     font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
 }
 
+
 /* account tab */
-
 #account-tab {
-    width: 60%;
-    min-height: 80vh;
-    max-height: 80vh;
-    
-    background: linear-gradient(to right bottom, var(--accountColorFrom), var(--accountColorTo));
-
-    border-radius: 2rem;
-
-    /* make it appear in front of the glass circles */
+    width: 100%;
     position: absolute;
-    z-index: 2;
-
-    /* blur background glass circles */
-    backdrop-filter: blur(1rem);
-
-    display: flex;
+    display: block;
     justify-content: space-between;
 }
 
+/* 
+--!--------------------------------
+!! Да се изтрие ако не трябва
+--!--------------------------------
+*/
+
 /* glass circles */
 
-.glass-circle {
+/* .glass-circle {
     display: inline-block;
     border-radius: 50%;
 
     width: 15vw;
     height: 27vh;
 
-    /* make each glass circle appear behind the account tab
-       no need of 'position: relative' to use z-index because we get 'position: absolute' from each glass circle's id definitions */
+    //make each glass circle appear behind the account tab
+       no need of 'position: relative' to use z-index because we get 'position: absolute' from each glass circle's id definitions 
     z-index: 1;
-}
+} */
 
-#bottom-glass-circle {
-    /* position the circle at the bottom left corner of the account tab */
+/* #bottom-glass-circle {
+     //position the circle at the bottom left corner of the account tab 
     position: absolute;
     bottom: 3vh;
     left: 14vw;
 
     background: linear-gradient(to left bottom, var(--glassCircleColorFrom), var(--glassCircleColorTo));
-}
+} */
 
-#top-glass-circle {
-    /* position the circle at the top right corner of the account tab */
+/* #top-glass-circle {
+    //position the circle at the top right corner of the account tab 
     position: absolute;
     top: 3vh;
     right: 14vw;
 
     background: linear-gradient(to right top, var(--glassCircleColorFrom), var(--glassCircleColorTo));
-}
+} */
 
 /* navbar */
 
 #options-menu {
     /* make the options tab take up 30% of the account tab's space with no growing and shrinking */
     flex: 1 0 30%;
-
-    border-radius: 2rem;
+    border-radius: 0;
     background: linear-gradient(to top left, var(--accountColorTo), var(--accountColorFrom));
-
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .option {
     /* take up all the option menu's width */
     width: 100%;
-
     cursor: pointer;
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-
-    border-radius: 2rem;
+    margin-right: 1rem;
+    border-radius: 1rem;
 }
 
 .option:hover {
     background: var(--optionHoverColor);
-
     /* make the background transition 1 second */
     transition: 1s;
 }
 
-/* the logo of the university and the name of the system */
+/* the logo of the system */
 .non-option {
-    width: 100%;
-
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -153,37 +136,63 @@ input, button {
 }
 
 .non-option img {
-    width: 30%;
-    height: 70%;
+    width: 40%;
+    padding: 1em;
 }
 
-.non-option span > h3 {
-    /* change color back to black for the non-options only */
-    color: black;
-}
 
-#system-name {
+/* 
+--!--------------------------------
+!! Да се изтрие ако не трябва
+--!--------------------------------
+*/
+
+/* #system-name {
     max-width: 70%;
     text-align: center;
-}
+} */
 
 /* all tabs next to navbar */
 
-.right-tab {
+/* .right-tab {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     
     max-width: 65%;
-}
+} */
 
 /* my account tab */
-
-#my-account-section {
-    /* make my account section cover 80% with no growing and shrinking */
-    flex: 1 0 80%;
+#account-tab>section {
+    margin: auto;
+    border-radius: 50px;
+    width: 70%;
+    background: linear-gradient(to right bottom, var(--accountColorFrom), var(--accountColorTo));
+    display: block;
+    padding: 2%;
+    text-align: center;
+    margin-top: 3%;
 }
+
+
+/* 
+--!--------------------------------
+!! Да се изтрие ако не трябва
+--!--------------------------------
+*/
+
+
+/* #my-account-section { */
+/* make my account section cover 80% with no growing and shrinking */
+/* flex: 1 0 20%; */
+
+/* moved to #account-tab > section */
+/* margin: auto;
+    border-radius: 50px;
+    width: 70%;
+    min-height: 50vh; */
+/* } */
 
 #my-account-header {
     flex-grow: 0;
@@ -193,15 +202,27 @@ input, button {
 }
 
 #account-details {
-    width: 80%;
-
-    flex-grow: 1;
-    display: flex;
+    /* width: 80%; */
+    /* flex-grow: 1;
+    
     flex-direction: column;
+    margin: auto; */
+    display: flex;
 }
 
 #account-details p {
     margin: 0.5rem;
+}
+
+.user-info {
+    display: inline-block;
+    width: 50%;
+    /* text-align: left; */
+}
+
+.schedule-wrapper {
+    display: inline-block;
+    width: 49%;
 }
 
 #user-picture {
@@ -214,13 +235,17 @@ input, button {
     flex-grow: 0;
 }
 
+#qrcode {
+    text-align: -webkit-center;
+}
+
 .schedule {
     /* align the schedule tab at the center */
     align-self: center;
 
-    width: 80%;
+    /* width: 80%; */
     height: 38%;
-    
+
     box-sizing: border-box;
     overflow-y: auto;
     padding: 1rem;
@@ -268,11 +293,18 @@ input, button {
     border-radius: 0.5rem;
 }
 
+
+/* 
+--!--------------------------------
+!! Да се оправи или изтрие
+--!--------------------------------
+*/
+
 .zoom-in-effect {
     cursor: zoom-out !important;
 
     /* translate the image to the left and scale it so that it gets bigger when pressed (zooming effect) */
-    transform: translateX(-9rem) scale(2, 1.5);
+    transform: translateX(-9rem) scale(2, 2);
 
     /* make transform do its job for 1 second */
     transition: transform 1s;
@@ -291,12 +323,17 @@ input, button {
 /* upload shchedules tab */
 
 #my-schedule-section {
-    font-size: 1.5rem;
-
+    /* display: flex; is removed by some reason */
+    display: flex;
+    align-items: center;
+    /* font-size: 1.5rem;
     flex: 1 0 70%;
+    justify-content: flex-start; */
+    /* width: 80%;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 20px; */
 
-
-    justify-content: flex-start;
 }
 
 #upload-file-section {
@@ -319,13 +356,12 @@ input, button {
     font-weight: bolder;
 }
 
-#upload-file-form > *:not(:last-child) {
+#upload-file-form>*:not(:last-child) {
     margin-bottom: 1rem;
 }
 
 #csv {
     max-width: 65%;
-
     flex: 1 0 20%;
 }
 
@@ -333,35 +369,48 @@ input[type=file] {
     font-size: 1.5rem;
 }
 
+.button-section-wrapper {
+    display: inline-block;
+    width: 50%;
+}
+
 #button-section {
-    display: flex;
+    /* display: flex;
     justify-content: space-evenly;
 
     padding-top: 2rem;
-    flex: 1 0 -5%;
+    flex: 1 0 -5%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .button-style {
+
     border-radius: 1rem;
     border: none;
-
+    margin: 1rem 0.5rem;
     background: linear-gradient(to right top, var(--fontFrom), var(--fontTo));
 
     padding: 1rem;
     font-size: 1.2rem;
 
-    width: 30%;
+    width: 60%;
     height: 100%;
 
     filter: brightness(90%);
-
     cursor: pointer;
+}
+
+.schedule-data-section {
+    display: inline-block;
+    width: 49%;
 }
 
 .button-style:hover {
     background: linear-gradient(to left top, var(--fontFrom), var(--fontTo));
     box-shadow: 0 0 1rem var(--accountColorFrom);
-    filter:brightness(95%);
+    filter: brightness(95%);
 }
 
 .active {
@@ -412,8 +461,10 @@ input[type=file] {
 }
 
 .show-popup {
-    -webkit-animation: fadeIn-Out 4s; /* Chrome and Safari */
-    -moz-animation: fadeIn-Out 4s; /* Mozilla */
+    -webkit-animation: fadeIn-Out 4s;
+    /* Chrome and Safari */
+    -moz-animation: fadeIn-Out 4s;
+    /* Mozilla */
     animation: fadeIn-Out 4s;
 }
 
@@ -422,27 +473,33 @@ input[type=file] {
     0% {
         opacity: 0;
     }
+
     37.5% {
         opacity: 1;
     }
+
     62.5% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
 }
-  
+
 @-webkit-keyframes fadeIn-Out {
     0% {
         opacity: 0;
     }
+
     37.5% {
         opacity: 1;
     }
+
     62.5% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
@@ -452,18 +509,21 @@ input[type=file] {
     0% {
         opacity: 0;
     }
+
     37.5% {
         opacity: 1;
     }
+
     62.5% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
 }
 
-#schedule-section, #slots-section {
+/* #schedule-section, #slots-section {
     padding: 1rem;
     flex: 1 0 70%;
 
@@ -515,4 +575,4 @@ input[type=file] {
 
 .schedule-item span:last-child {
     flex: 1 0 50%;
-}
+} */
