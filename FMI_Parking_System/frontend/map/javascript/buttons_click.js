@@ -1,20 +1,36 @@
 /* define how the buttons for the slots react when they are pressed by the user */
 
 (function() {
+
+    let slots = document.querySelectorAll(".space");
+        // Set an event handler on the document so that when
+        // any element is clicked, the event will bubble up to it
+        document.addEventListener("click", function (evt) {
+            // Check to see if it was a button that was clicked
+            if (evt.target.classList.contains("space")) {
+                // Loop over all the slots & remove the active class
+                slots.forEach(function (button) {
+                    button.classList.remove("active");
+                });
+                // Make the clicked button have the active class
+                evt.target.classList.add("active");
+            }
+        });
+
     // !! Това май не трябва да е просто буттонс след като вече има бутони и в катринките
     const buttons = document.getElementsByTagName("button"); // get all the buttons for the slots
 
-    // for each button add a separate event listener
-    for (let button of buttons) {
-        button.addEventListener('click', () => {
-            if (!button.classList.contains("non-taken-slot")) { // if the button does not correspond to a non-taken (free) slot, then do nothing
+    // const slots = document.getElementsByClassName("space");
+    for (let slot of slots){
+        slot.addEventListener('click', () =>{
+      
+            if (slot.hasAttribute("disabled")){
                 return;
             }
 
-            // in the confirmation box add the button which was just pressed
-            const selectedButton = document.getElementById("selected-button");
-            selectedButton.textContent = button.textContent;
-
+            const selectedSlot = document.getElementById("selected-button");
+            selectedSlot.textContent = slot.getAttribute("id");
+            
             // wait until the user has either pressed "Да" or "Не"
             waitForUserInput().then((response) => {
                 document.getElementById("confirm-message-container").classList.add("non-visible"); // hide the confirmation box when the user has clicked one of the two options
@@ -25,13 +41,48 @@
                 }
 
                 // if "Да" was pressed, then reserve that slot
-                sendReservationData(button);
+                
+                //TODO - send reservation properly????????????????????????????????????
+                
+                console.log("send reservation for "+ selectedSlot.textContent);
+                console.log(slot.getAttribute("id"));
+                sendReservationData(slot.getAttribute("id"));
             })
-        });
+
+        })
     }
+
+
+    // for each button add a separate event listener
+    // for (let button of buttons) {
+    //     button.addEventListener('click', () => {
+    //         if (!button.classList.contains("non-taken-slot")) { // if the button does not correspond to a non-taken (free) slot, then do nothing
+    //             return;
+    //         }
+
+            
+
+    //         // in the confirmation box add the button which was just pressed
+    //         const selectedButton = document.getElementById("selected-button");
+    //         selectedButton.textContent = button.textContent;
+
+    //         // wait until the user has either pressed "Да" or "Не"
+    //         waitForUserInput().then((response) => {
+    //             document.getElementById("confirm-message-container").classList.add("non-visible"); // hide the confirmation box when the user has clicked one of the two options
+    //             document.querySelector("div.dimmer").classList.add("non-visible"); // hide the dimmer, so that it does not dim the page
+
+    //             if (response == false) { // if the user has pressed "Не", then he is not sure in his decision, so do nothing
+    //                 return;
+    //             }
+
+    //             // if "Да" was pressed, then reserve that slot
+    //             sendReservationData(button);
+    //         })
+    //     });
+    // }
 })();
 
-function sendReservationData(button) {
+function sendReservationData(slot) {
     const selectedDate = document.getElementById("date-value"); // get the searched date
         
     if (selectedDate == null) { // if the section with the searched time interval doesn't exist yet
@@ -56,7 +107,8 @@ function sendReservationData(button) {
     */
 
     let reservationInfo = {};
-    reservationInfo["button"] = button.textContent;
+    // reservationInfo["button"] = button.textContent;
+    reservationInfo["slot"] = slot;
     reservationInfo["date"] = selectedDate.textContent;
     reservationInfo["start-time"] = selectedStart.textContent;
     reservationInfo["end-time"] = selectedEnd.textContent;
@@ -66,12 +118,15 @@ function sendReservationData(button) {
     .then((response) => {
         displayResponse(response["status"], response["message"]);
         if (response["status"] == "SUCCESS") { // if the slot was reserved successfully, color the button in yellow
-            button.classList.remove("non-taken-slot");
-            button.classList.add("user-taken-slot");
+            // button.classList.remove("non-taken-slot");
+            // button.classList.add("user-taken-slot");
+            console.log("should make slot background ");
+            
         }
         else if (response["status"] == "TAKEN") { // if the slot was already taken, then color the button in red - no reservation was made
-            button.classList.remove("non-taken-slot");
-            button.classList.add("taken-slot");
+            // button.classList.remove("non-taken-slot");
+            // button.classList.add("taken-slot");
+            console.log("the slot was already taken");
         }
         else {
             throw new Error(response["message"]);

@@ -60,6 +60,7 @@ select {
 .space {
     position: absolute;
     background-color: #D2B2ADFF;
+    /* background-color: #5BC76A; */
     cursor: pointer;
 }
 

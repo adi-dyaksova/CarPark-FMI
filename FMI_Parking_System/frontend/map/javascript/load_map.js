@@ -5,8 +5,7 @@ const maxOptions = 14, startTime = 7; // maximum options per select field and st
 let zoneNames = {
     1: "A",
     2: "B",
-    3: "C",
-    // 4: "D"
+    3: "C"
 }
 
 const startSelect = document.getElementById("start-time"); // select for start time of the time interval

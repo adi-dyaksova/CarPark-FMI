@@ -38,16 +38,17 @@
     $user_type = $_SESSION["user"]["user_type"]; // get the user type
     $user_id = $_SESSION["user"]["id"]; // get the user id
 
-    $button = $reserve_data["button"]; // get the pressed button (which slot was clicked)
-    $zone_length = strcspn($button, "0123456789"); // returns length of the non-digit prefix
+    // $button = $reserve_data["button"]; // get the pressed button (which slot was clicked)
+    $slot = $reserve_data["slot"];
+    $zone_length = strcspn($slot, "0123456789"); // returns length of the non-digit prefix
 
     if ($zone_length == 0) { // if the pressed button we recieved from the frontend is missing a zone letter (A, B, C or D), then return an error
         http_response_code(400);
         exit(json_encode(["status" => "ERROR", "message" => "Несъответствие с базата данни!"]));
     }
 
-    $zone = substr($button, 0, $zone_length); // get the zone letter (A, B, C or D)
-    $code = substr($button, $zone_length, strlen($button)); // get the digit of the slot (0 - 9)
+    $zone = substr($slot, 0, $zone_length); // get the zone letter (A, B, C)
+    $code = substr($slot, $zone_length, strlen($slot)); // get the digit of the slot (0 - 9)
     $date = $reserve_data["date"]; // get the date for which the reservation will be
     $start_time = $reserve_data["start-time"]; // get the start time of the time interval
 
@@ -101,7 +102,8 @@
     }
 
     try {
-        $sql = "SELECT id, lecturer_only
+        // $sql = "SELECT id, lecturer_only
+        $sql = "SELECT id
                 FROM slots
                 WHERE code = :code AND zone = :zone";
         
@@ -124,22 +126,22 @@
     $slot_id = $response["id"]; // used later for creating a reservation
 
     // if the user is a student and the button he pressed is unavailable for him, return an error (he can't reserve such slot)
-    if ($user_type == "Студент") {
-        if ($response["lecturer_only"] == 1) {
-            http_response_code(401);
-            exit(json_encode(["status" => "ERROR", "message" => "Неоторизиран достъп до паркомясто!"]));
-        }
-    }
+    // if ($user_type == "Студент") {
+    //     if ($response["lecturer_only"] == 1) {
+    //         http_response_code(401);
+    //         exit(json_encode(["status" => "ERROR", "message" => "Неоторизиран достъп до паркомясто!"]));
+    //     }
+    // }
     // if the user is "Хоноруван преподавател", then if he pressed on a lecturer only slot in zone A, then return an error (he can't reserve such slot)
-    else if ($user_type == "Хоноруван преподавател") {
-        if ($response["lecturer_only"] == 1 && $zone == "A") {
-            http_response_code(401);
-            exit(json_encode(["status" => "ERROR", "message" => "Неоторизиран достъп до паркомясто!"]));
-        }
-    }
+    // else if ($user_type == "Хоноруван преподавател") {
+    //     if ($response["lecturer_only"] == 1 && $zone == "A") {
+    //         http_response_code(401);
+    //         exit(json_encode(["status" => "ERROR", "message" => "Неоторизиран достъп до паркомясто!"]));
+    //     }
+    // }
 
     // if the user is a lecturer and the slot is for lecturers only
-    if ($user_type != "Студент" && $response["lecturer_only"] == 1) {
+    // if ($user_type != "Студент" && $response["lecturer_only"] == 1) {
         try {
             $sql = "SELECT date, start_time, end_time
                     FROM schedules s JOIN user_schedules us ON us.schedule_id = s.id 
@@ -151,7 +153,7 @@
             // if the user has no schedules in this day, then he can't reserve a slot for that day
             if ($stmt->rowCount() == 0) {
                 http_response_code(401);
-                exit(json_encode(["status" => "ERROR", "message" => "Неоторизиран достъп до паркомясто!"]));
+                exit(json_encode(["status" => "ERROR", "message" => "Не може да запазите паркомястото, защото нямате предвидени лекции/упражнения в това време!"]));
             }
             else {
                 $hours = array_fill(7, 16, false); // create an associative array from 7 to 16
@@ -183,10 +185,10 @@
         for ($start = $start_time; $start < $end_time; $start++) {
             if ($hours[$start] == false) { // if there is no schedule that exists in the specified time interval for the slot reservation, then the user can't reserve the slot
                 http_response_code(401);
-                exit(json_encode(["status" => "ERROR", "message" => "Неоторизиран достъп до паркомясто!"]));
+                exit(json_encode(["status" => "ERROR", "message" => "Не може да запазите паркомястото, защото вече сте запазили друго в това време!"]));
             }
         }
-    }
+    // }
 
     // we are sure that the slot is not gray and what's left is to check whether the slot is red or green
     try {

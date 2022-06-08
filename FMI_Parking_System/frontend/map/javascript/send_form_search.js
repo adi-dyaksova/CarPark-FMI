@@ -4,6 +4,31 @@
 
     const searchBtn = document.querySelector("img.search-btn"); // get the "Търси" button
     searchBtn.addEventListener('click', () => { // whenever the "Търси" button is pressed
+
+        //green background to all slots
+        let slots = document.querySelectorAll(".space");
+        for (let i = 0; i < slots.length; i++){
+            slots[i].style.backgroundColor = "#5BC76A";
+            console.log(slots[i]);
+            slots[i].removeAttribute("disabled");
+        }
+
+
+        // // Set an event handler on the document so that when
+        // // any element is clicked, the event will bubble up to it
+        // document.addEventListener("click", function (evt) {
+        //     // Check to see if it was a button that was clicked
+        //     if (evt.target.classList.contains("space")) {
+        //         // Loop over all the slots & remove the active class
+        //         slots.forEach(function (button) {
+        //             button.classList.remove("active");
+        //         });
+        //         // Make the clicked button have the active class
+        //         evt.target.classList.add("active");
+        //     }
+        // });
+
+
         const data = document.querySelectorAll("input#date, select#start-time, select#end-time"); // get the date input and the selects for the start and end time of the searched interval
         
         /* create an object which will look like:
@@ -35,9 +60,14 @@
         form.reset();
 
         sendSearchData(search_data)
-        .then((data) => { // recieves buttons to be colored in red
+        .then((data) => { // receives buttons to be colored in red
             if (data["status"] == "SUCCESS") {
-                colorButtons(data["taken_slots"], data["unavailable_slots"]);
+                console.log("sendSearchData response");
+                console.log(data);
+                // colorTakenSlots(data["taken_slots"]);
+                colorSlots(data["taken_slots"],"#D63F4D");
+                colorSlots(data["unavailable_slots"],"#D2B2ADFF");
+                // colorButtons(data["taken_slots"], data["unavailable_slots"]);
                 createSearchParams(search_data["date"], search_data["start-time"], search_data["end-time"])
             }
             else {
@@ -65,6 +95,18 @@ function sendSearchData(data) {
     .then((data) => {
         return data;
     })
+}
+
+
+function colorSlots(slots_list, color){
+    let slot = "";
+    let id = "";
+    for (let i = 0; i < slots_list.length; i++){
+        id = slots_list[i]["zone"] + slots_list[i]["code"];
+        slot = document.getElementById(id);
+        slot.style.backgroundColor = color;
+        slot.setAttribute("disabled",true);
+    }
 }
 
 /* color buttons accordingly:

@@ -28,6 +28,6 @@
     const saveSpot = document.getElementById("reserve-spot");
     saveSpot.addEventListener("click", () => {
         // redirect user to zones.html with an option for back through the browser
-        window.location.href = "../map/zones.html"; 
+        window.location.href = "../map/zones - Copy.html"; 
     });
 })();
