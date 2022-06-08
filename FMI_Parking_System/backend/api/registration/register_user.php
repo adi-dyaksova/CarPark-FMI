@@ -11,11 +11,10 @@ $user_data; // used to store the decoded JSON string $data
 // check if the JSON is correct
 if (strlen($data) > 0 && check_json($data)) {
     $user_data = json_decode($data, true);
-    echo $user_data;
 }
 else {
     http_response_code(400);
-    exit(json_encode(["status" => "ERROR", "message" => "Невалиден JSON формат!"]));
+    exit(json_encode(["status" => "ERROR", "message" => "Invalid JSON format!"]));
 }
 
 $firstname = $user_data["firstname"]; // get input first name
@@ -29,7 +28,7 @@ $user_type = $user_data["user_type"]; // get input user type
 // check if the user has repeated the password correctly
 if ($password != $repeated_password) {
     http_response_code(400);
-    exit(json_encode(["status" => "ERROR", "message" => "Паролите не съвпадат!"]));
+    exit(json_encode(["status" => "ERROR", "message" => "Passwords do not match!"]));
 }
 
 try {
@@ -46,11 +45,11 @@ try {
     // if a user with the inputted email already exist, then we can't create a new account
     if ($stmt->rowCount() != 0) {
         http_response_code(400);
-        exit(json_encode(["status" => "ERROR", "message" => "Потребител с дадения имейл вече съществува!"]));
+        exit(json_encode(["status" => "ERROR", "message" => "There is already user with this email!"]));
     }
 } catch (PDOException $e) {
     http_response_code(500);
-    return json_encode(["status" => "ERROR", "message" => "Неочаквана грешка настъпи в сървъра!"]);
+    return json_encode(["status" => "ERROR", "message" => "Unexpected server error!"]);
 }
 
 try {
@@ -72,15 +71,15 @@ try {
         setcookie("password", $password, time() + 600);
 
         http_response_code(200);
-        exit(json_encode(["status" => "SUCCESS", "message" => "Успешна регистрация!"]));
+        exit(json_encode(["status" => "SUCCESS", "message" => "Successful registration!"]));
     }
     else {
         http_response_code(500);
-        exit(json_encode(["status" => "ERROR", "message" => "Неочаквана грешка настъпи в сървъра!"]));
+        exit(json_encode(["status" => "ERROR", "message" => "Unexpected server error!"]));
     }
 } catch (PDOException $e) {
     http_response_code(500);
-    exit(json_encode(["status" => "ERROR", "message" => "Неочаквана грешка настъпи в сървъра!"]));
+    exit(json_encode(["status" => "ERROR", "message" => "Unexpected server error!"]));
 }
 
 ?>
