@@ -163,7 +163,7 @@ if ($user_type == "Хоноруван преподавател") { // if the use
     try {
         $sql = "SELECT code, zone
                 FROM slots
-                WHERE zone LIKE 'A' AND lecturer_only = TRUE;";
+                WHERE lecturer_only = TRUE;";
 
         $stmt = $connection->prepare($sql);
         $stmt->execute();
