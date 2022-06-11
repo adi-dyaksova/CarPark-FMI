@@ -74,58 +74,38 @@ catch (PDOException $e) {
 }
 
 // check if user has lecture or exercise in the specified date and time interval
-// if ($user_type != "Студент") {
-    try {
-        $sql = "SELECT date, start_time, end_time
-                FROM schedules s JOIN user_schedules us ON us.schedule_id = s.id 
-                WHERE us.user_id = :user_id AND s.date = :date";
+    // try {
+    //     $sql = "SELECT date, start_time, end_time
+    //             FROM schedules s JOIN user_schedules us ON us.schedule_id = s.id 
+    //             WHERE us.user_id = :user_id AND s.date = :date";
     
-        $stmt = $connection->prepare($sql);
-        $stmt->execute(["user_id" => $_SESSION["user"]["id"], "date" => $date]);
-    
-        $isStudent = false;
+    //     $stmt = $connection->prepare($sql);
+    //     $stmt->execute(["user_id" => $_SESSION["user"]["id"], "date" => $date]); 
 
-        //ПО-СКОРО ДА МОЖЕ ДА ЗАПАЗВА СВОБОДНО, АКО Е ЩАТЕН, И ДА НЕ МОЖЕ НИЩО,АКО Е ХОНОРУВАН
-        // if ($stmt->rowCount() == 0) { // if there were no returned rows, then his type will be set to student
-        //     $user_type = "Студент";
-        //     $isStudent = true;
-        // }
-        // else {
-            $hours = array_fill(7, 16, false); // create an associative array from 7 to 16
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $corrected_start_time = substr($row["start_time"], 0, strpos($row["start_time"], ":")); // get the first part of the returned time, for example => returned: 18:00:00 => corrected: 18
+    //         $hours = array_fill(7, 16, false); // create an associative array from 7 to 16
+    //         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    //             $corrected_start_time = substr($row["start_time"], 0, strpos($row["start_time"], ":")); // get the first part of the returned time, for example => returned: 18:00:00 => corrected: 18
     
-                if ($corrected_start_time[0] == "0") { // if corrected_start_time has a leading zero (07, 08, 09), remove it
-                    $corrected_start_time = substr($corrected_start_time, 1, strlen($corrected_start_time));
-                }
+    //             if ($corrected_start_time[0] == "0") { // if corrected_start_time has a leading zero (07, 08, 09), remove it
+    //                 $corrected_start_time = substr($corrected_start_time, 1, strlen($corrected_start_time));
+    //             }
     
-                $corrected_end_time = substr($row["end_time"], 0, strpos($row["end_time"], ":")); // get the first part of the returned time, for example => returned: 16:00:00, corrected => 16
+    //             $corrected_end_time = substr($row["end_time"], 0, strpos($row["end_time"], ":")); // get the first part of the returned time, for example => returned: 16:00:00, corrected => 16
     
-                if ($corrected_end_time[0] == "0") { // if corrected_end_time has a leading zero (08, 09), remove it
-                    $corrected_end_time = substr($corrected_end_time, 1, strlen($corrected_end_time));
-                }
+    //             if ($corrected_end_time[0] == "0") { // if corrected_end_time has a leading zero (08, 09), remove it
+    //                 $corrected_end_time = substr($corrected_end_time, 1, strlen($corrected_end_time));
+    //             }
     
-                for ($start = $corrected_start_time - 1; $start < $corrected_end_time + 1; $start++) { // padding
-                    $hours[$start] = true; // hours[10] == true means he can park from 10 to 11
-                }
-            }
-        // }
-    }
-    catch (PDOException $e) {
-        http_response_code(500);
-        exit(json_encode(["status" => "ERROR", "message" => "Неочаквана грешка настъпи в сървъра!"]));
-    }
-    
-    // if the user has lecture or exercise in the specified date and time interval, check whether the input time interval coincides fully with at least one schedule interval
-    // if (!$isStudent) {
-    //     for ($start = $start_time; $start < $end_time; $start++) {
-    //         if ($hours[$start] == false) {
-    //             $user_type = "Студент"; // make the user student in case the condition described above is broken
-    //             break;
+    //             for ($start = $corrected_start_time - 1; $start < $corrected_end_time + 1; $start++) { // padding
+    //                 $hours[$start] = true; // hours[10] == true means he can park from 10 to 11
+    //             }
     //         }
-    //     }
     // }
-// }
+    // catch (PDOException $e) {
+    //     http_response_code(500);
+    //     exit(json_encode(["status" => "ERROR", "message" => "Неочаквана грешка настъпи в сървъра!"]));
+    // }
+    
 
 try {
     $sql = "SELECT s.code, s.zone, s.lecturer_only
@@ -146,9 +126,6 @@ try {
         if ($user_type == "Хоноруван преподавател" && $row["zone"] == "A" && $row["lecturer_only"] == 1) { // if the user is a "Хоноруван преподавател", then zone A's 0-6 slots are unavailable to him
             continue;
         }
-        // else if ($user_type == "Студент" && $row["lecturer_only"] == 1) { // if the user's a student then he doesn't has access to every zone's 0-6 slots except D's
-        //     continue;
-        // }
 
         array_push($slots_taken, $row); // array of associative arrays 
     }
@@ -177,24 +154,6 @@ if ($user_type == "Хоноруван преподавател") { // if the use
         exit(json_encode(["status" => "ERROR", "message" => "Неочаквана грешка настъпи в сървъра!"]));
     }
 }
-// else if ($user_type == "Студент") { // if the user is "Студент" his unavailable slots are A0-A6, B0-B6, C0-C6
-//     try {
-//         $sql = "SELECT code, zone
-//                 FROM slots
-//                 WHERE lecturer_only = TRUE;";
-
-//         $stmt = $connection->prepare($sql);
-//         $stmt->execute();
-
-//         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-//             array_push($unavailable_slots, $row); // push every unavaliable slot in the array
-//         }
-//     }
-//     catch (PDOException $e) {
-//         http_response_code(500);
-//         exit(json_encode(["status" => "ERROR", "message" => "Неочаквана грешка настъпи в сървъра!"]));
-//     }
-// }
 
 http_response_code(200);
 exit(json_encode(["status" => "SUCCESS", "taken_slots" => $slots_taken, "unavailable_slots" => $unavailable_slots]));

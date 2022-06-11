@@ -2,53 +2,17 @@
 
 (function () {
 
-  const backBtn = document.getElementById("back-btn"); // get the back button
-  backBtn.addEventListener('click', () => { // whenever back button is pressed
-
-    //redirect to account_view.html 
-    window.location.href = "../account/account_view.html";
-  })
-
-  const searchBtn = document.getElementById("to-search"); // get the "Търси" button
-  searchBtn.addEventListener('click', () => { // whenever the "Търси" button is pressed
-
+  const searchBtn = document.getElementById("to-search"); // "Търси" button
+  searchBtn.addEventListener('click', () => { 
 
 
     //green background to all slots
     let slots = document.querySelectorAll(".space");
-    for (let i = 0; i < slots.length; i++) {
-      slots[i].style.backgroundColor = "#5BC76A";
-      slots[i].removeAttribute("disabled");
-
-    }
-
-
-    // // Set an event handler on the document so that when
-    // // any element is clicked, the event will bubble up to it
-    // document.addEventListener("click", function (evt) {
-    //     // Check to see if it was a button that was clicked
-    //     if (evt.target.classList.contains("space")) {
-    //         // Loop over all the slots & remove the active class
-    //         slots.forEach(function (button) {
-    //             button.classList.remove("active");
-    //         });
-    //         // Make the clicked button have the active class
-    //         evt.target.classList.add("active");
-    //     }
-    // });
-
+    makeAllAvailable(slots);
 
     const data = document.querySelectorAll("input#date, select#start-time, select#end-time"); // get the date input and the selects for the start and end time of the searched interval
 
-    /* create an object which will look like:
-    
-    serch_data = {
-        date: ...;
-        start-time: ...;
-        end-time: ...;
-    }
-    
-    */
+    // search-data object contains date, start and end time
     let search_data = {};
     data.forEach((field) => {
       search_data[field.name] = field.value;
@@ -71,12 +35,12 @@
     sendSearchData(search_data)
       .then((data) => { // receives buttons to be colored in red
         if (data["status"] == "SUCCESS") {
-          console.log("sendSearchData response");
-          console.log(data);
-          // colorTakenSlots(data["taken_slots"]);
-          colorSlots(data["taken_slots"], "#D63F4D");
-          colorSlots(data["unavailable_slots"], "#D2B2ADFF");
-          // colorButtons(data["taken_slots"], data["unavailable_slots"]);
+          let slots = document.querySelectorAll(".space");
+          //make all with green bacckground in case the page was not reloaded
+          makeAllAvailable(slots);
+          colorSlots(data["taken_slots"], "taken");
+          colorSlots(data["unavailable_slots"], "unavailable");
+
           createSearchParams(search_data["date"], search_data["start-time"], search_data["end-time"])
         }
         else {
@@ -85,7 +49,9 @@
       })
       .catch((errorMsg) => {
         for (let i = 0; i < slots.length; i++) {
-          slots[i].style.backgroundColor = "#D2B2ADFF";
+          slots[i].classList.remove("available");
+          slots[i].classList.remove("taken");
+          slots[i].classList.add("unavailable");
           slots[i].setAttribute("disabled",true);
         }
         document.getElementById("search-params").remove();
@@ -95,7 +61,19 @@
   })
 })();
 
-// send a POST request over to the backend in order to send the searched interval and recieve the information about the buttons
+function makeAllAvailable(slots){    
+  for (let i = 0; i < slots.length; i++) {
+    if(!slots[i].classList.contains("available")){
+      slots[i].classList.add("available");
+    }
+    if(slots[i].classList.contains("unavailable")){
+      slots[i].classList.remove("unavailable");
+    }
+  slots[i].removeAttribute("disabled");
+}
+}
+
+// send a POST request over to the backend in order to send the searched interval and recieve the information about the taken and unavailable slots
 function sendSearchData(data) {
   return fetch("../../backend/api/check_slots/check_slots.php", {
     method: "POST",
@@ -113,63 +91,15 @@ function sendSearchData(data) {
 }
 
 
-function colorSlots(slots_list, color) {
+function colorSlots(slots_list, class_to_add) {
   let slot = "";
   let id = "";
   for (let i = 0; i < slots_list.length; i++) {
     id = slots_list[i]["zone"] + slots_list[i]["code"];
     slot = document.getElementById(id);
-    slot.style.backgroundColor = color;
+    slot.classList.remove("available");
+    slot.classList.add(class_to_add);
     slot.setAttribute("disabled", true);
-  }
-}
-
-/* color buttons accordingly:
-
-   green: non-taken slot
-   red: taken slot
-   gray: unavailable slot
-
-*/
-function colorButtons(takenSlots, unavailableSlots) {
-  const buttons = document.getElementsByTagName("button");
-
-  for (let i = 0; i < buttons.length; i++) {
-    buttons[i].classList.remove("taken-slot"); // remove class from previous searches
-    buttons[i].classList.remove("non-taken-slot"); // remove class from previous searches
-    buttons[i].classList.remove("unavailable-slot"); // remove class from previous searches
-    buttons[i].classList.remove("user-taken-slot"); // remove class from previous searches
-  }
-
-  for (let i = 0; i < takenSlots.length; i++) { // go through all the returned taken buttons
-    let zoneSlot = takenSlots[i]["zone"] + takenSlots[i]["code"]; // for example: "A7"
-
-    for (let j = 0; j < buttons.length; j++) {
-      if (buttons[j].textContent == zoneSlot) { // find the button from above in all the buttons
-        buttons[j].classList.add("taken-slot");
-        buttons[j].classList.remove("non-taken-slot"); // remove from previous searches
-      }
-    }
-  }
-
-  // color the rest in green, meaning that they are non-taken
-  for (let i = 0; i < buttons.length; i++) {
-    if (!buttons[i].classList.contains("taken-slot")) {
-      buttons[i].classList.add("non-taken-slot");
-    }
-  }
-
-  // color the unavailable slots in gray
-  for (let i = 0; i < unavailableSlots.length; i++) {
-    let zoneSlot = unavailableSlots[i]["zone"] + unavailableSlots[i]["code"]; // for example: "A7"
-
-    for (let j = 0; j < buttons.length; j++) {
-      if (buttons[j].textContent == zoneSlot) { // find the button from above in all the buttons
-        buttons[j].classList.add("unavailable-slot");
-        buttons[j].classList.remove("non-taken-slot"); // remove from previous searches
-        buttons[j].classList.remove("taken-slot"); // remove from previous searches
-      }
-    }
   }
 }
 

@@ -1,12 +1,7 @@
 let slideIndex = 1; // keeps track of the current slide number
-const maxSlots = 10; // maximum slots per zone
+// const maxSlots = 10; // maximum slots per zone
 const maxOptions = 14, startTime = 7; // maximum options per select field and start time of the 
 
-let zoneNames = {
-    1: "A",
-    2: "B",
-    3: "C"
-}
 
 const startSelect = document.getElementById("start-time"); // select for start time of the time interval
 const endSelect = document.getElementById("end-time"); // select for end time of the time interval
@@ -24,25 +19,24 @@ for (let i = 0; i < maxOptions; i++) {
     endSelect.appendChild(opt);
 }
 
-// const backBtn = document.getElementById("back-btn"); // get back button which will take user to the the account page
-// backBtn.addEventListener('click', () => {
-//     window.location.replace("../account/account_view.html");
-// })
+const backBtn = document.getElementById("back-btn"); // get the back button
+backBtn.addEventListener('click', () => { // whenever back button is pressed
 
-// when the page is loaded, show the first slide and create the buttons for zone A
+  //redirect to profile page
+  window.location.href = "../account/account_view.html";
+})
+
+// when the page is loaded, show the first slide
 showSlides(slideIndex);
-// createSlotsButtons();
 
-// when the user has clicked one of the arrows on the slideshow (for previous or next slide), then change the current slide and put the new buttons for the new current zone slots
+// when the user has clicked one of the arrows on the slideshow (for previous or next slide), then change the current slide
 function plusSlides(n) {
     showSlides(slideIndex += n);
-    // showZoneButtons(slideIndex);
 }
 
-// when the user has clicked on one of the zone buttons, change the current slide to the corresponding one and put the new corresponding buttons for the slots
+// when the user has clicked on one of the zone buttons, change the current slide to the corresponding one
 function currentSlide(n) {
     showSlides(slideIndex = n);
-    // showZoneButtons(slideIndex);
 }
 
 function showSlides(n) {
@@ -58,72 +52,15 @@ function showSlides(n) {
         slideIndex = slides.length;
     }
 
+    // hide all the slides and make onlly the current one visible
     for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none"; // hide all the slides
+        slides[i].style.display = "none"; 
     }
-
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace("active", ""); // make all zone buttons inactive
-    }
-
     slides[slideIndex - 1].style.display = "block"; // display the current slide
-    dots[slideIndex - 1].className += " active"; // make the current button active (the corresponding zone button)
+
+    // make all zone buttons inactive and only the  button active
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace("active", ""); 
+    }
+    dots[slideIndex - 1].className += " active";
 }
-
-// function createSlotsButtons() {
-//     const main = document.body.querySelector("main");
-
-//     for (let zoneIndex in zoneNames) {
-//         let zoneName = zoneNames[zoneIndex]; // returns "A", "B", "C"
-
-//         let zoneContainer = document.createElement("div"); // create container of buttons for the specific zone
-//         zoneContainer.id = zoneName;
-//         zoneContainer.classList.add("slots-container");
-
-//         if (zoneName == "A") { // displays zone A's buttons by default
-//             zoneContainer.style.display = "block";
-//         }
-//         else {
-//             zoneContainer.style.display = "none";
-//         }
-
-//         let firstRow = document.createElement("div"); // div containing the first row of buttons
-//         firstRow.classList.add("row-btns");
-
-//         let secondRow = document.createElement("div"); // div containing the second row of buttons
-//         secondRow.classList.add("row-btns");
-        
-//         for (let i = 0; i < maxSlots; i++) {
-//             // create the buttons and append them to their corresponding row
-//             let button = document.createElement("button");
-//             button.textContent = zoneName + i;
-//             button.classList.add("slots-btn");
-    
-//             if (i < maxSlots / 2) {
-//                 firstRow.appendChild(button);
-//             }
-//             else {
-//                 secondRow.appendChild(button);
-//             }
-//         }
-
-//         // append the two rows to the container
-//         zoneContainer.appendChild(firstRow);
-//         zoneContainer.appendChild(secondRow);
-
-//         main.appendChild(zoneContainer);
-//     }
-// }
-
-// function showZoneButtons(slideIndex) {
-//     const buttonContainers = document.body.querySelectorAll("div.slots-container"); // the containers with the buttons for each zone (3 zones)
-
-//     buttonContainers.forEach((container) => { // each container
-//         if (container.id == zoneNames[slideIndex]) {
-//             container.style.display = "block";
-//         }
-//         else {
-//             container.style.display = "none";
-//         }
-//     });
-// }

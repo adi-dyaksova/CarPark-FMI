@@ -11,7 +11,7 @@
 
       option.addEventListener("click", () => {
         // redirect user to zones.html with an option for back through the browser
-        window.location.href = "../map/zones - Copy.html";
+        window.location.href = "../map/zones.html";
       });
 
     } else if (option.id == "log-out") {
