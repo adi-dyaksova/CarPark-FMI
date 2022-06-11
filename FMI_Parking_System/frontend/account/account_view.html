@@ -2,196 +2,221 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/account_view_styles.css">
-    <script defer src="javascript/load_user_data.js"></script>
-    <script defer src="javascript/load_today_schedule.js"></script>
-    <script defer src="javascript/log_out_user.js"></script>
-    <script defer src="javascript/button_reaction.js"></script>
-    <script defer src="javascript/map_click_reaction.js"></script>
-    <script defer src="javascript/submit_csv_file.js"></script>
-    <script defer src="javascript/get_schedule.js"></script>
-    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js" defer></script>
-    <script defer src="javascript/generate-qr.js"></script>
-    <script>
-        /* reload the page on load because the page won't load the user's data when he has set cookies */
-        window.onload = function () {
-            if (!window.location.hash) {
-                window.location = window.location + '#loaded';
-                window.location.reload();
-            }
-        }
-    </script>
-    <title>Home</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet"
+        href="css/account_view_styles.css">
+  <script defer
+          src="javascript/load_user_data.js"></script>
+  <script defer
+          src="javascript/load_today_schedule.js"></script>
+  <script defer
+          src="javascript/navbar_buttons.js"></script>
+  <script defer
+          src="javascript/map_click_reaction.js"></script>
+  <script defer
+          src="javascript/submit_csv_file.js"></script>
+  <script defer
+          src="javascript/get_schedule.js"></script>
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"
+          defer></script>
+  <script defer
+          src="javascript/generate-qr.js"></script>
+  <script>
+    /* reload the page on load because the page won't load the user's data when he has set cookies */
+    window.onload = function () {
+      if (!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+      }
+    }
+  </script>
+  <title>Home</title>
 </head>
 
 <body>
-    <main>
-        <section id="account-tab">
+  <main>
+    <section id="account-tab">
 
-            <!-- Navbar -->
-            <nav id="options-menu">
+      <!-- Navbar -->
+      <nav id="options-menu">
 
-                <!--  logo -->
-                <div class="non-option">
-                    <img src="images/Logo.png" alt="Parking system logo">
-                </div>
+        <!--  logo -->
+        <div class="non-option">
+          <img src="images/Logo.png"
+               alt="Parking system logo">
+        </div>
 
-                <!-- Navbar options -->
-                <div class="option" id="my-account">
-                    <span>
-                        <h3>Моят профил</h3>
-                    </span>
-                </div>
+        <!-- Navbar options -->
+        <div class="option"
+             id="my-account">
+          <span>
+            <h3>Моят профил</h3>
+          </span>
+        </div>
 
-                <div class="option" id="my-schedule">
-                    <span>
-                        <h3>Моят график</h3>
-                    </span>
-                </div>
+        <div class="option"
+             id="my-schedule">
+          <span>
+            <h3>Моят график</h3>
+          </span>
+        </div>
 
-                <div class="option" id="my-qrcode">
-                    <span>
-                        <h3>QR код</h3>
-                    </span>
-                </div>
+        <div class="option"
+             id="my-qrcode">
+          <span>
+            <h3>QR код</h3>
+          </span>
+        </div>
 
-                <div class="option" id="parking-zones">
-                    <span>
-                        <h3>Паркинг зони</h3>
-                    </span>
-                </div>
+        <div class="option"
+             id="parking-zones">
+          <span>
+            <h3>Паркинг зони</h3>
+          </span>
+        </div>
 
-                <div class="option" id="reserve-spot">
-                    <span>
-                        <h3>Запази паркомясто</h3>
-                    </span>
-                </div>
+        <div class="option"
+             id="reserve-spot">
+          <span>
+            <h3>Запази паркомясто</h3>
+          </span>
+        </div>
 
-                <div class="option" id="log-out">
-                    <span>
-                        <h3>Изход</h3>
-                    </span>
-                </div>
-            </nav>
+        <div class="option"
+             id="log-out">
+          <span>
+            <h3>Изход</h3>
+          </span>
+        </div>
+      </nav>
 
-            <!-- My Account tab -->
-            <section id="my-account-section">
+      <!-- My Account tab -->
+      <section id="my-account-section">
 
-                <!-- The section header -->
-                <header id="my-account-header">
-                    <h1>Моят профил</h1>
-                </header>
+        <!-- The section header -->
+        <header id="my-account-header">
+          <h1>Моят профил</h1>
+        </header>
 
-                <!-- The content of the tab -->
-                <article id="account-details">
-                    <div class="user-info">
-                        <!-- User picture -->
-                        <div id="user-picture">
-                            <img src="images/Profil_photo.png" alt="user-picture">
-                        </div>
+        <!-- The content of the tab -->
+        <article id="account-details">
+          <div class="user-info">
+            <!-- User picture -->
+            <div id="user-picture">
+              <img src="images/Profil_photo.png"
+                   alt="user-picture">
+            </div>
 
-                        <!-- User data -->
-                        <p id="firstname"><strong>Име: </strong></p>
-                        <p id="lastname"><strong>Фамилия: </strong></p>
-                        <p id="email"><strong>Имейл: </strong></p>
-                        <p id="user-type"><strong>Тип потребител: </strong></p>
-                    </div>
+            <!-- User data -->
+            <p id="firstname"><strong>Име: </strong></p>
+            <p id="lastname"><strong>Фамилия: </strong></p>
+            <p id="email"><strong>Имейл: </strong></p>
+            <p id="user-type"><strong>Тип потребител: </strong></p>
+          </div>
 
-                    <!-- Schedule part -->
-                    <div class="schedule-wrapper">
-                        <!-- Schedule title -->
-                        <p><strong>График за дненя: </strong></p>
+          <!-- Schedule part -->
+          <div class="schedule-wrapper">
+            <!-- Schedule title -->
+            <p><strong>График за дненя: </strong></p>
 
-                        <!-- The schedule of the user for today-->
-                        <div class="schedule">
-                        </div>
-                    </div>
-                </article>
+            <!-- The schedule of the user for today-->
+            <div class="schedule">
+            </div>
+          </div>
+        </article>
 
-            </section>
+      </section>
 
-            <!-- Upload schedule tab -->
-            <section id="my-schedule-section" class="no-display">
+      <!-- Upload schedule tab -->
+      <section id="my-schedule-section"
+               class="no-display">
 
-                <!-- The three buttons over at the top of the tab -->
-                <section class="button-section-wrapper">
-                    <section id="button-section">
-                        <button class="button-style" id="first-button">Качване на график</button>
-                        <button class="button-style active" id="second-button">График</button>
-                        <button class="button-style" id="third-button">Запазени паркоместа</button>
-                    </section>
-                </section>
+        <!-- The three buttons over at the top of the tab -->
+        <section class="button-section-wrapper">
+          <section id="button-section">
+            <button class="button-style"
+                    id="first-button">Качване на график</button>
+            <button class="button-style active"
+                    id="second-button">График</button>
+            <button class="button-style"
+                    id="third-button">Запазени паркоместа</button>
+          </section>
+        </section>
 
-                <section class="schedule-data-section">
-                    <!-- The section for the "Качване на график" button -->
-                    <section id="upload-file-section" class="no-display">
-                        <form id="upload-file-form">
-                            <label for="csv">Качете CSV файл:</label>
-                            <input type="file" id="csv">
-                            <button class="button-style" id="upload-file">Запази файл</button>
-                        </form>
+        <section class="schedule-data-section">
+          <!-- The section for the "Качване на график" button -->
+          <section id="upload-file-section"
+                   class="no-display">
+            <form id="upload-file-form">
+              <label for="csv">Качете CSV файл:</label>
+              <input type="file"
+                     id="csv">
+              <button class="button-style"
+                      id="upload-file">Запази файл</button>
+            </form>
 
-                        <!-- Used for the response from the server -->
-                        <div id="upload-response">
-                        </div>
-                    </section>
+            <!-- Used for the response from the server -->
+            <div id="upload-response">
+            </div>
+          </section>
 
-                    <!-- The section for the "График" button -->
-                    <section id="schedule-section">
-                        <header>
-                            <h4>Предстоящи занятия</h4>
-                        </header>
+          <!-- The section for the "График" button -->
+          <section id="schedule-section">
+            <header>
+              <h4>Предстоящи занятия</h4>
+            </header>
 
-                        <article id="upcoming-schedule">
+            <article id="upcoming-schedule">
+            </article>
+          </section>
 
-                            <!-- --!-------------------------------- -->
-                            <!-- !! Това защо е закоментирано -->
-                            <!-- --!-------------------------------- -->
-                            
-                            <!-- <div class="schedule schedule-item">
-                            <span><h4>Лекция: Приложен човеко-машинен интерфейс</h4></span>
-                            <span><p>10.06.2021, 12:00-14:00, ФХФ</p></span>
-                        </div> -->
-                        </article>
-                    </section>
+          <!-- The section for the "Запазени паркоместа" button -->
+          <section id="slots-section"
+                   class="no-display">
+            <header>
+              <h4>Резервирани паркоместа</h4>
+            </header>
 
-                    <!-- The section for the "Запазени паркоместа" button -->
-                    <section id="slots-section" class="no-display">
-                        <header>
-                            <h4>Резервирани паркоместа</h4>
-                        </header>
+            <article id="taken-slots">
+            </article>
+          </section>
 
-                        <article id="taken-slots">
-                            <!-- <div class="schedule schedule-item">
-                            <span><h4>Паркомясто: A6</h4></span>
-                            <span><p>10.06.2021, 12:00-14:00</p></span>
-                        </div> -->
-                        </article>
-                    </section>
+        </section>
 
-                </section>
+      </section>
 
-            </section>
+      <!-- QR code section -->
+      <section id="my-qrcode-section"
+               class="no-display">
+        <button id="display-qr-btn"
+                onclick="displayQR()"
+                class="button-style "> Покажи QR код</button>
+        <button id="hide-qr-btn"
+                onclick="hideQR() "
+                class="button-style no-display"> Скрий QR код</button>
+        <div id="qrcode"
+             class="no-display"></div>
+        <div id="expired-qr-msg"
+             class="no-display">Вашият QR е изтекъл. Натиснете долния бутон, за да се
+          генерира нов QR код.</div>
+        <button id="new-qr-btn"
+                onclick="get_new_qr()"
+                class="button-style no-display">Генерирай нов QR
+          код</button>
+      </section>
 
-            <!-- QR code section -->
-            <section id="my-qrcode-section" class="no-display">
-                <button id="display-qr-btn" onclick="displayQR()" class="button-style "> Покажи QR код</button>
-                <button id="hide-qr-btn" onclick="hideQR() " class="button-style no-display"> Скрий QR код</button>
-                <div id="qrcode" class="no-display"></div>
-                <div id="expired-qr-msg" class="no-display">Вашият QR е изтекъл. Натиснете долния бутон, за да се
-                    генерира нов QR код.</div>
-                <button id="new-qr-btn" onclick="get_new_qr()" class="button-style no-display">Генерирай нов QR
-                    код</button>
-            </section>
-
-            <!-- Map of all parking zones -->
-            <section id="parking-zones-section" class="no-display">
-                <img src="images/map.png" alt="map showing all the zones">
-            </section>
-    </main>
+      <!-- Map of all parking zones -->
+      <section id="parking-zones-section"
+               class="no-display">
+        <img src="images/map.png"
+             alt="map showing all the zones">
+      </section>
+    </section>
+  </main>
 </body>
 
 </html>
