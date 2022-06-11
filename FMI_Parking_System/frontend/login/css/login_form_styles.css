@@ -297,6 +297,19 @@ input, .custom-select {
 	transform: translateX(20%);
 }
 
-#registration-form{
-	overflow-y: scroll;
+.wrapper{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+#firstname, #lastname, #sex, #car_number{
+	display: inline-block;
+	width: 50%;
+}
+#firstname, #sex{
+	margin-right: 1em;
+}
+
+#register-button{
+	margin-top: 2%;
 }

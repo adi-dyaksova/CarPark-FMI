@@ -45,12 +45,15 @@
       <form id="registration-form">
         <h1>Създай акаунт</h1>
 
+        <div class="wrapper">
         <!-- first name -->
         <input type="text" placeholder="Име" autocomplete="off" required name="firstname" id="firstname">
 
         <!-- last name -->
         <input type="text" placeholder="Фамилия" autocomplete="off" required name="lastname" id="lastname">
+      </div>
 
+      <div class="wrapper">
         <!-- user sex -->
         <select name="sex" id="sex" class="custom-select">
           <option value="M">Мъж</option>
@@ -59,6 +62,7 @@
 
         <!-- car number -->
         <input type="text" placeholder="Номер на кола" autocomplete="off" required name="car_number" id="car_number">
+      </div>
 
         <!-- email -->
         <input type="email" placeholder="Имейл" required name="email-register" id="email">
