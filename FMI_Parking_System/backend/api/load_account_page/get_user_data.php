@@ -3,7 +3,7 @@
 require_once("../../db/db_connection/connect_to_db.php");
 require_once("../functions/login.php");
 
-/* returns the firstname, lastname, email, the user type, qr_generated_time and car_number*/
+/* returns the firstname, lastname, sex, email, the user type, qr_generated_time and car_number*/
 
 session_start();
 // if there is no session set but there are cookies set
@@ -28,7 +28,7 @@ try {
     $db = new DB();
     $connection = $db->getConnection();
 
-    $sql = "SELECT firstname,lastname,email,user_type, qr_generated_time, car_number 
+    $sql = "SELECT firstname,lastname, sex, email,user_type, qr_generated_time, car_number 
             FROM users 
             WHERE id = :id";
 

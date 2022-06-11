@@ -20,6 +20,7 @@ else {
 
 $firstname = $user_data["firstname"];
 $lastname = $user_data["lastname"]; 
+$sex = $user_data["sex"]; 
 $car_number =  $user_data["car_number"];
 $email = $user_data["email-register"]; 
 $password = $user_data["password-register"]; 
@@ -55,19 +56,18 @@ try {
 }
 
 try {
-    $insert = "INSERT INTO users (firstname, lastname, email, password, user_type, car_number)
-                      VALUES (:firstname, :lastname, :email, :password, :user_type, :car_number)";
+    $insert = "INSERT INTO users (firstname, lastname, sex, email, password, user_type, car_number)
+                      VALUES (:firstname, :lastname, :sex, :email, :password, :user_type, :car_number)";
 
     $stmt = $connection->prepare($insert);
     
     // if the execution passed with no failure, then create the user session
-    if ($stmt->execute(["firstname" => $firstname, "lastname" => $lastname, "email" => $email, "password" => $hashed_password, "user_type" => $user_type, "car_number" => $car_number])) {
+    if ($stmt->execute(["firstname" => $firstname, "lastname" => $lastname, "sex" => $sex, "email" => $email, "password" => $hashed_password, "user_type" => $user_type, "car_number" => $car_number])) {
         
         $user_id = $connection->lastInsertId(); // get the newly created user's id
 
         session_start();
-        //трябва ли да се променя, ако добавим още данни
-        $user = array("id" => $user_id, "firstname" => $firstname, "lastname" => $lastname, "email" => $email, "password" => $hashed_password, "user_type" => $user_type);
+        $user = array("id" => $user_id, "firstname" => $firstname, "lastname" => $lastname, "sex" => $sex, "email" => $email, "password" => $hashed_password, "user_type" => $user_type, "car_number" => $car_number);
         $_SESSION["user"] = $user; // create his session
 
         // set cookies

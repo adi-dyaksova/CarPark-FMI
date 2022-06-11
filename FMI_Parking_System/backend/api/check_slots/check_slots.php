@@ -123,10 +123,9 @@ try {
 
     $slots_taken = array(); // creates an empty array for taken slots (code,zone,lecturer_only)
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        if ($user_type == "Хоноруван преподавател" && $row["zone"] == "A" && $row["lecturer_only"] == 1) { // if the user is a "Хоноруван преподавател", then zone A's 0-6 slots are unavailable to him
+        if ($user_type == "Хоноруван преподавател" && $row["lecturer_only"] == 1) { // continue because we are gathering taken slots only (not unavailable)
             continue;
         }
-
         array_push($slots_taken, $row); // array of associative arrays 
     }
 } catch(PDOException $e) {
