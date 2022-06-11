@@ -4,20 +4,13 @@ USE `parking_system`;
 -- Схема на данните от таблица `users`
 INSERT INTO `users` (`firstname`, `lastname`, `sex`, `email`, `password`, `user_type`, `car_number`) VALUES
 ('Milen', 'Petrov','M', 'milenp@fmi.uni-sofia.bg', '$2y$10$0ScDEg9R.qswXt23FDKEuOKUDCLWtbAcjTbKGfk6A0HLpO.Z9u6Ge', 'Щатен преподавател', 'СА1111РВ'),
-('Alexander', 'Stefanov', 'M', 'astef@fmi.uni-sofia.bg', '$2y$10$9O0BFAYgQzX2r5Cv5N3ejeS3OGC147qy6.CHnclLxOCUEyYBU8tQS', 'Хоноруван преподавател', 'СВ1111ВВ'),
-('Pesho', 'Peshov', 'M', 'pesho@gmail.com', '$2y$10$cK3BHiZl6Sc4LE3j/YN9Le/yB2I7H4EHaOZtsFTnEY8Bt0xhYY5MO', 'Хоноруван преподавател', 'СВ1441ХМ');
-
+('Alexander', 'Stefanov', 'M', 'astef@fmi.uni-sofia.bg', '$2y$10$9O0BFAYgQzX2r5Cv5N3ejeS3OGC147qy6.CHnclLxOCUEyYBU8tQS', 'Хоноруван преподавател', 'СВ1111ВВ');
 
 -- Схема на данните от таблица `reservations`
 INSERT INTO `reservations` (`user_id`, `slot_id`, `start_time`, `end_time`, `date`) VALUES
 (2, 15, '09:00:00', '12:00:00', '2022-06-24'),
 (2, 21, '14:00:00', '15:00:00', '2022-06-24'),
 (2, 17, '18:00:00', '21:00:00', '2022-06-24'),
-(3, 20, '16:00:00', '17:00:00', '2022-06-24'),
-(3, 21, '17:00:00', '18:00:00', '2022-06-24'),
-(3, 22, '18:00:00', '19:00:00', '2022-06-24'),
-(3, 29, '09:00:00', '15:00:00', '2022-06-25'),
-(3, 27, '16:00:00', '20:00:00', '2022-06-25'),
 (1, 19, '15:00:00', '17:00:00', '2022-06-25'),
 (1, 6, '07:00:00', '15:00:00', '2022-06-26'),
 (1, 30, '18:00:00', '19:00:00', '2022-06-26'),
