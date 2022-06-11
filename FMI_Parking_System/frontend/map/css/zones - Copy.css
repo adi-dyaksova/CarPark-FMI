@@ -13,7 +13,7 @@ body {
 
   /* color variables used later in the code */
   --red-color: #AA0428;
-  --green-color: #328324;
+  --green-color: #5BC76A;
   --accountColorFrom: rgba(255, 255, 255, 0.7);
   --accountColorTo: rgba(255, 255, 255, 0.3);
 }
@@ -444,9 +444,9 @@ select {
 }
 
 /* ! Да се махне като се оправи оцветяването на бутоните */
-.active {
-  background-color: #FF0;
-}
+/* .active {
+  background-color: #FF0; 
+} */
 
 /* form */
 #search-form {
@@ -695,8 +695,8 @@ select {
 
 .success {
   display: block !important;
-  background-color: #FF8C00;
-  box-shadow: 0 0 1rem #FF8C00;
+  background-color: var(--green-color);
+  box-shadow: 0 0 1rem var(--green-color);
 }
 
 .show-popup {
@@ -763,7 +763,7 @@ select {
 }
 
 #search-params {
-  margin-left: 2rem;
+  margin: 2rem;
   font-size: 16px;
   text-align: center;
   background: linear-gradient(to right bottom, #FFFFFFB3, #FFFFFF4D);

@@ -93,23 +93,16 @@ function register() {
       data[input.name] = input.value;
     })
 
-    console.log(data);
-
     sendFormData(data)
       .then((responseMessage) => {
         if (responseMessage["status"] === "ERROR") {
-          console.log("if: ");
-          console.log(responseMessage);
           throw new Error(responseMessage["message"]);
         }
         else {
-          console.log("else: ");
-          console.log(responseMessage);
           window.location.replace("../account/account_view.html"); // redirect user to his newly created account
         }
       })
       .catch((errorMsg) => {
-        console.log(errorMsg);
         showDiv(responseDiv, errorMsg); // create an error message if the server returned an error
       })
   })

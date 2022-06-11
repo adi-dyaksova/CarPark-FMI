@@ -12,12 +12,14 @@
   const searchBtn = document.getElementById("to-search"); // get the "Търси" button
   searchBtn.addEventListener('click', () => { // whenever the "Търси" button is pressed
 
+
+
     //green background to all slots
     let slots = document.querySelectorAll(".space");
     for (let i = 0; i < slots.length; i++) {
       slots[i].style.backgroundColor = "#5BC76A";
-      console.log(slots[i]);
       slots[i].removeAttribute("disabled");
+
     }
 
 
@@ -82,6 +84,12 @@
         }
       })
       .catch((errorMsg) => {
+        for (let i = 0; i < slots.length; i++) {
+          slots[i].style.backgroundColor = "#D2B2ADFF";
+          slots[i].setAttribute("disabled",true);
+        }
+        document.getElementById("search-params").remove();
+        document.querySelector(".space.active").classList.remove("active");
         displayError(errorMsg);
       })
   })
