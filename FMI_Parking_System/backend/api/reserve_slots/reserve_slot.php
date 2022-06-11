@@ -206,6 +206,7 @@
         $stmt->execute(["date" => $date, "code" => $code, "zone" => $zone, "start_time" => $formatted_start_time, "end_time" => $formatted_end_time]);
 
         // if any reservation exists in a time interval that intersects with the current one, then return error (the slot can't be taken since there are hours that it will be taken by another user)
+
         if ($stmt->rowCount() >= 1) {
             http_response_code(200);
             exit(json_encode(["status" => "TAKEN", "message" => "Мястото вече е заето! Моля направете нова заявка!"]));
