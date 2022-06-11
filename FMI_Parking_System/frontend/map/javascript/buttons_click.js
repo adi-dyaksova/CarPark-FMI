@@ -121,12 +121,13 @@ function sendReservationData(slot) {
             // button.classList.remove("non-taken-slot");
             // button.classList.add("user-taken-slot");
             console.log("should make slot background ");
+            
         }
-        // else if (response["status"] == "TAKEN") { // if the slot was already taken, then color the button in red - no reservation was made
-        //     // button.classList.remove("non-taken-slot");
-        //     // button.classList.add("taken-slot");
-        //     console.log("the slot was already taken");
-        // }
+        else if (response["status"] == "TAKEN") { // if the slot was already taken, then color the button in red - no reservation was made
+            // button.classList.remove("non-taken-slot");
+            // button.classList.add("taken-slot");
+            console.log("the slot was already taken");
+        }
         else {
             throw new Error(response["message"]);
         }

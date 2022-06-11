@@ -8,9 +8,8 @@ const new_qr_btn = document.getElementById("new-qr-btn");
 var user_email;
 var user_name;
 var user_lastname;
-var user_user_type;
+var user_type;
 var user_qr_generated_time;
-var user_car_number;
 
 
 function displayQR() {
@@ -18,21 +17,27 @@ function displayQR() {
     .then((userData) => {
         if (userData["status"] === "SUCCESS") {
 
-                user_user_type = userData["data"]["user_type"];
+                user_type = userData["data"]["user_type"];
                 const qr_generated_time_seconds = userData["data"]["qr_generated_time"];
                 user_email = userData["data"]["email"];
                 
+                // console.log(user_type);
+
                 curr_time_seconds = Math.trunc(Date.now() / 1000);
                 
-                if(user_user_type == "Хоноруван преподавател" && curr_time_seconds - qr_generated_time_seconds > qr_max_seconds){
+                console.log(curr_time_seconds);
+                console.log("db time");
+                console.log(qr_generated_time_seconds);
+                if(user_type == "Хоноруван преподавател" && curr_time_seconds - qr_generated_time_seconds > qr_max_seconds){
                     //Show message if QR code has expired
+                    console.log("expired");
                     qrcode_el.innerHTML = null;
                     expired_qr_msg.classList.remove("no-display");
                     new_qr_btn.classList.remove("no-display");
                     display_qr_btn.classList.add("no-display");    
                 }
                 else{
-
+                  
                     //Display QR code if it is valid
                     if(!expired_qr_msg.classList.contains("no-display")){
                         expired_qr_msg.classList.add("no-display");
@@ -47,7 +52,6 @@ function displayQR() {
                     user_lastname = userData["data"]["lastname"];
                     // user_type = userData["data"]["user_type"];
                     user_qr_generated_time = toDateTime(userData["data"]["qr_generated_time"]);
-                    user_car_number = userData["data"]["car_number"];
 
                     generateQR();
                 }
@@ -81,12 +85,9 @@ function generateQR(){
     var qr_data = JSON.stringify({
         name: user_name,
         lastname: user_lastname,
-        user_type: user_user_type,
-        qr_generated_time: user_qr_generated_time,
-        car_number: user_car_number
+        user_type: user_type,
+        qr_generated_time: user_qr_generated_time
     });
-
-    console.log(qr_data);
 
     qr_data = to_latin(qr_data);  
     qrcode_el.classList.remove("no-display");                  
@@ -126,6 +127,7 @@ function get_new_qr() {
     
     update_qr()
     .then((responseMessage) => {
+        console.log(responseMessage);
         if (responseMessage["status"] === "ERROR") {
             throw new Error(responseMessage["message"]);
         }
@@ -135,8 +137,7 @@ function get_new_qr() {
             hide_qr_btn.classList.remove("no-display"); 
             qrcode_el.classList.remove("no-display");
             user_qr_generated_time = responseMessage["qr_generated_time"];
-            // generateQR();
-            displayQR();
+            generateQR();
         }
     })
     .catch((errorMsg) => {
