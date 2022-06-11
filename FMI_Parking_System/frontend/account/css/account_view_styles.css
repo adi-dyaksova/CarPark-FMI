@@ -4,7 +4,8 @@ body {
   margin: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
-
+  height: 100vh;
+  background: linear-gradient(to right bottom, var(--backgroundGradient1), var(--backgroundGradient2));
   /* color variables used later in the code */
   --backgroundGradient1: #ffa190;
   --backgroundGradient2: #ff9bb3;
@@ -22,7 +23,6 @@ body {
 
 main {
   min-height: 100vh;
-  background: linear-gradient(to right bottom, var(--backgroundGradient1), var(--backgroundGradient2));
 }
 
 h3 {
@@ -53,6 +53,7 @@ button {
   position: absolute;
   display: block;
   justify-content: space-between;
+  padding-bottom: 2rem;
 }
 
 #options-menu {
@@ -195,7 +196,6 @@ button {
 }
 
 /* parking zone map tab */
-
 #parking-zones-section {
   display: flex;
   justify-content: center;
@@ -204,43 +204,33 @@ button {
 
 #parking-zones-section img {
   width: 90%;
-  height: 80%;
-
-  cursor: zoom-in;
-
+  height: 70%;
   box-shadow: 1rem 1rem .5rem var(--scheduleShadow);
   border-radius: 0.5rem;
 }
 
-
-/* 
---!--------------------------------
-!! Да се оправи или изтрие
---!--------------------------------
-*/
-
-.zoom-in-effect {
-  cursor: zoom-out !important;
-
-  /* translate the image to the left and scale it so that it gets bigger when pressed (zooming effect) */
-  transform: translateX(-9rem) scale(2, 2);
-
-  /* make transform do its job for 1 second */
-  transition: transform 1s;
+#map-info{
+  margin: 2rem;
+  padding-left: 2.5rem;
+  text-align: left;
 }
 
-.zoom-out-effect {
-  /* when the user clicks on the zoomed image, zoom it out (just scale it back to normal) 
-       this definition is used because we want to make the animation a bit slower
-       because by default it does it immediately when class zoom-in-effect is removed */
-  transform: scale(1, 1);
+/* link to Zapazi parkomqsto decoration */
+a:link{
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+}
+a:visited{
+  text-decoration: none;
+  color: #000000;
 
-  /* make transform do its job for 1 second */
-  transition: transform 1s;
+}
+a:hover {
+  text-decoration: underline;
 }
 
 /* upload shchedules tab */
-
 #my-schedule-section {
   display: flex;
   align-items: center;
