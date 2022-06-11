@@ -122,11 +122,6 @@ button {
 }
 
 #account-details {
-  /* width: 80%; */
-  /* flex-grow: 1;
-    
-    flex-direction: column;
-    margin: auto; */
   display: flex;
 }
 
@@ -137,7 +132,6 @@ button {
 .user-info {
   display: inline-block;
   width: 50%;
-  /* text-align: left; */
 }
 
 .schedule-wrapper {
@@ -155,10 +149,11 @@ button {
   flex-grow: 0;
 }
 
-#taken-slots, #upcoming-schedule{
+#taken-slots,
+#upcoming-schedule {
   max-height: 250px;
   overflow-y: auto;
-}    
+}
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -166,17 +161,17 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
- 
+
 ::-webkit-scrollbar-thumb {
-  background: #ee89a1; 
+  background: #ee89a1;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff7595; 
+  background: #ff7595;
 }
 
 #qrcode {
@@ -187,7 +182,6 @@ button {
   /* align the schedule tab at the center */
   align-self: center;
 
-  /* width: 80%; */
   height: 38%;
 
   box-sizing: border-box;
@@ -233,23 +227,25 @@ button {
   border-radius: 0.5rem;
 }
 
-#map-info{
+#map-info {
   margin: 2rem;
   padding-left: 2.5rem;
   text-align: left;
 }
 
 /* link to Zapazi parkomqsto decoration */
-a:link{
+a:link {
   text-decoration: none;
   color: #000000;
   font-weight: bold;
 }
-a:visited{
+
+a:visited {
   text-decoration: none;
   color: #000000;
 
 }
+
 a:hover {
   text-decoration: underline;
 }
