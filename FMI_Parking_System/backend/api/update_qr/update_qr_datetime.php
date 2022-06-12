@@ -34,11 +34,7 @@ try {
     $stmt = $connection->prepare($search);
     $stmt->execute(["email" => $email]);
 
-    // if a user with the inputted email already exist, then we can't create a new account
-    // if ($stmt->rowCount() != 0) {
-    //     http_response_code(400);
-    //     exit(json_encode(["status" => "ERROR", "message" => "Потребител с дадения имейл вече съществува!"]));
-    // }
+
 } catch (PDOException $e) {
     http_response_code(500);
     return json_encode(["status" => "ERROR", "message" => "Неочаквана грешка настъпи в сървъра!"]);

@@ -53,6 +53,7 @@ function checkLoginData(data) {
 
 
 function createErrorDivContent(div, response) {
+  div.innerHTML=null;
   // create the image and append it's attributes src and alt
   let errorImage = document.createElement("img");
   errorImage.src = "./images/error_response.png";
@@ -126,6 +127,7 @@ function sendFormData(data) {
 }
 
 function showDiv(div, message) {
+  div.innerHTML = null;
   // create the image of the error (a white exclamation mark)
   let statusImage = document.createElement("img");
 
