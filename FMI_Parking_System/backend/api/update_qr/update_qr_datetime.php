@@ -18,9 +18,8 @@ else {
     http_response_code(400);
     exit(json_encode(["status" => "ERROR", "message" => "Невалиден JSON формат!"]));
 }
-// echo $user_data["qr_generated_time"];
+
 $qr_generated_time = date("Y-m-d H:i:s", $user_data["qr_generated_time"]);
-// echo $qr_generated_time;
 
 $email = $user_data["email"];
 

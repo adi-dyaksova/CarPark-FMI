@@ -86,8 +86,6 @@ function generateQR(){
         car_number: user_car_number
     });
 
-    console.log(qr_data);
-
     qr_data = to_latin(qr_data);  
     qrcode_el.classList.remove("no-display");                  
     qrcode_el.innerText = null;
@@ -135,7 +133,6 @@ function get_new_qr() {
             hide_qr_btn.classList.remove("no-display"); 
             qrcode_el.classList.remove("no-display");
             user_qr_generated_time = responseMessage["qr_generated_time"];
-            // generateQR();
             displayQR();
         }
     })
