@@ -1,0 +1,94 @@
+Участници в екипа:
+Андрея Дяксова, 62455
+Мария Велева, 62445
+Светослав Димов, 62477
+
+Съдържание на архива:
+FMI_Parking_System
+	index.html
+	frontend
+		login
+			login_form.html 
+			css
+				login_form_styles.css
+			javascript
+				send_user_data.js
+			images
+				error_response.png
+				Logo.png
+		account
+			account_view.html
+			css  
+				account_view_styles.css
+			javascript 
+				generate-qr.js
+				get_schedule.js
+				load_today_schedule.js
+				load_user_data.js
+				navbar_buttons.js
+				submit_csv_file.js
+			images 
+				Logo.png
+				map.png
+				male photo.png
+				female photo.png
+		map
+			zones.html - HTML код за секция „Запази паркомясто“.
+			css 
+				zones.css
+ 			javascript
+				buttons_click.js
+				handle_select_option.js
+				load_map.js
+				send_form_search.js
+			images 
+				back.png
+				buttonA.png 
+				buttonB.png
+				buttonC.png
+				fmi1.png
+				fzf1.png
+				fhf1.png
+				search.png
+	backend 
+		api
+			check_slots
+				check_slots.php
+			check_user_type
+				check_user_type.php
+			functions 
+				check_JSON_validity.php
+				login.php
+			load_account_page
+				get_today_schedule.php
+				get_user_data.php
+			load_user_schedule_data
+				load_user_schedule.php
+				load_user_taken_slots.php
+			login 
+				login_user.php
+			logout_user 
+				delete_user_session.php
+			registration
+				register_user.php
+			reserve_slots
+				reserve_slot.php
+			update_qr
+				update_qr_datetime.php
+			upload_csv
+				send_csv_to_db.php
+		db 
+			create_db
+				create_db.sql
+				test_data_db.sql
+			db_connection 
+				connect_to_db.php
+				db_info.ini
+csv_schedules
+	schedule_boyanb.csv
+	schedule_irenap.csv
+	test.csv
+Documentation
+	FMI_Parking_System.docx
+	FMI_Parking_System.pdf
+62455_62445_62477_README.txt
