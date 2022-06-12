@@ -89,6 +89,12 @@ csv_schedules
 	schedule_irenap.csv
 	test.csv
 Documentation
+	images
+		myprofile.png
+		myschedule.png
+		parkingzones.png
+		qrcode.png
+		reservespot.png
 	FMI_Parking_System.docx
 	FMI_Parking_System.pdf
 62455_62445_62477_README.txt
