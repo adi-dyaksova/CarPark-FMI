@@ -8,7 +8,7 @@
   
 </div>
 
-<div>
+<div align="center">
   
   <kbd>
     <img src="https://github.com/Svetoslav2112/CarPark-FMI/blob/main/Documentation/images/myprofile.png" width="480">
