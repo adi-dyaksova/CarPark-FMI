@@ -1,23 +1,24 @@
 ## FMI_Parking_System
+
 ### WEB Technologies Project
 
-<div align="center">
+<div>
   
   [**DOCUMENTATION LINK**](https://github.com/Svetoslav2112/CarPark-FMI/blob/main/Documentation/FMI%20Parking%20System.pdf)
   
 </div>
 
-<div align="center">
+<div>
   
   <kbd>
-    <img src="https://github.com/Svetoslav2112/CarPark-FMI/tree/main/Documentation/images/myprofile.png" width="480">
+    <img src="https://github.com/Svetoslav2112/CarPark-FMI/blob/main/Documentation/images/myprofile.png" width="480">
   </kbd>
   <kbd>
     <img src="https://github.com/Svetoslav2112/CarPark-FMI/tree/main/Documentation/images/myschedule.png" width="480">
   </kbd>
 </div>
 
-<div align="center" style="border: 5px solid">
+<div style="border: 5px solid">
   <kbd>
     <img src="https://github.com/Svetoslav2112/CarPark-FMI/tree/main/Documentation/images/parkingzones.png" width="480">
   </kbd>
