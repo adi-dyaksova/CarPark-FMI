@@ -10,19 +10,19 @@
 <div align="center">
   
   <kbd>
-    <img src="https://github.com/andy489/FMI_Parking_System/blob/main/Documentation/assets/schedule01.png" width="480">
+    <img src="https://github.com/Svetoslav2112/CarPark-FMI/tree/main/Documentation/images/myprofile.png" width="480">
   </kbd>
   <kbd>
-    <img src="https://github.com/andy489/FMI_Parking_System/blob/main/Documentation/assets/reservations01.png" width="480">
+    <img src="https://github.com/Svetoslav2112/CarPark-FMI/tree/main/Documentation/images/myschedule.png" width="480">
   </kbd>
 </div>
 
 <div align="center" style="border: 5px solid">
   <kbd>
-    <img src="https://github.com/andy489/FMI_Parking_System/blob/main/Documentation/assets/booking01.png" width="480">
+    <img src="https://github.com/Svetoslav2112/CarPark-FMI/tree/main/Documentation/images/parkingzones.png" width="480">
   </kbd>
   <kbd>
-    <img src="https://github.com/andy489/FMI_Parking_System/blob/main/Documentation/assets/confirm%D0%B0tion01.png" width="480">
+    <img src="https://github.com/Svetoslav2112/CarPark-FMI/tree/main/Documentation/images/reservespot.png" width="480">
   </kbd>
   
 </div>

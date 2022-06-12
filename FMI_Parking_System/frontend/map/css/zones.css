@@ -848,15 +848,14 @@ select {
   flex-direction: row;
 }
 
-.available{
+.available {
   background-color: var(--green-color);
 }
 
-.taken{
+.taken {
   background-color: var(--red-color);
 }
 
-.unavailable{
+.unavailable {
   background-color: var(--beige-color);
 }
-
