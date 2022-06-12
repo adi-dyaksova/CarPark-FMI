@@ -72,41 +72,7 @@ catch (PDOException $e) {
     http_response_code(500);
     exit(json_encode(["status" => "ERROR", "message" => "Неуспешна връзка към базата данни!"]));
 }
-
-// check if user has lecture or exercise in the specified date and time interval
-    // try {
-    //     $sql = "SELECT date, start_time, end_time
-    //             FROM schedules s JOIN user_schedules us ON us.schedule_id = s.id 
-    //             WHERE us.user_id = :user_id AND s.date = :date";
     
-    //     $stmt = $connection->prepare($sql);
-    //     $stmt->execute(["user_id" => $_SESSION["user"]["id"], "date" => $date]); 
-
-    //         $hours = array_fill(7, 16, false); // create an associative array from 7 to 16
-    //         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    //             $corrected_start_time = substr($row["start_time"], 0, strpos($row["start_time"], ":")); // get the first part of the returned time, for example => returned: 18:00:00 => corrected: 18
-    
-    //             if ($corrected_start_time[0] == "0") { // if corrected_start_time has a leading zero (07, 08, 09), remove it
-    //                 $corrected_start_time = substr($corrected_start_time, 1, strlen($corrected_start_time));
-    //             }
-    
-    //             $corrected_end_time = substr($row["end_time"], 0, strpos($row["end_time"], ":")); // get the first part of the returned time, for example => returned: 16:00:00, corrected => 16
-    
-    //             if ($corrected_end_time[0] == "0") { // if corrected_end_time has a leading zero (08, 09), remove it
-    //                 $corrected_end_time = substr($corrected_end_time, 1, strlen($corrected_end_time));
-    //             }
-    
-    //             for ($start = $corrected_start_time - 1; $start < $corrected_end_time + 1; $start++) { // padding
-    //                 $hours[$start] = true; // hours[10] == true means he can park from 10 to 11
-    //             }
-    //         }
-    // }
-    // catch (PDOException $e) {
-    //     http_response_code(500);
-    //     exit(json_encode(["status" => "ERROR", "message" => "Неочаквана грешка настъпи в сървъра!"]));
-    // }
-    
-
 try {
     $sql = "SELECT s.code, s.zone, s.lecturer_only
     FROM reservations r JOIN slots s ON r.slot_id = s.id
