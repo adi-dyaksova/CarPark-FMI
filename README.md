@@ -2,7 +2,7 @@
 
 ### WEB Technologies Project
 
-<div>
+<div align="center">
   
   [**DOCUMENTATION LINK**](https://github.com/Svetoslav2112/CarPark-FMI/blob/main/Documentation/FMI%20Parking%20System.pdf)
   
@@ -18,7 +18,7 @@
   </kbd>
 </div>
 
-<div style="border: 5px solid">
+<div align="center" style="border: 5px solid">
   <kbd>
     <img src="https://github.com/Svetoslav2112/CarPark-FMI/tree/main/Documentation/images/parkingzones.png" width="480">
   </kbd>
