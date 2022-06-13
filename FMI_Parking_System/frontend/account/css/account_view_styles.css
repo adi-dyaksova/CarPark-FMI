@@ -182,7 +182,7 @@ button {
   /* align the schedule tab at the center */
   align-self: center;
 
-  height: 38%;
+  height: 80%;
 
   box-sizing: border-box;
   overflow-y: auto;

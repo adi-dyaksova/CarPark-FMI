@@ -34,6 +34,11 @@ try {
     $stmt = $connection->prepare($search);
     $stmt->execute(["email" => $email]);
 
+    if ($stmt->rowCount() != 1) {
+        http_response_code(400);
+        exit(json_encode(["status" => "ERROR", "message" => "Несъответствие с базата данни!"]));
+    }
+
 
 } catch (PDOException $e) {
     http_response_code(500);

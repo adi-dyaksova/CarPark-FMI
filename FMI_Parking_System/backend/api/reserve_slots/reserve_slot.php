@@ -135,7 +135,7 @@
             // if the user has no schedules in this day, then he can't reserve a slot for that day
             if ($stmt->rowCount() == 0) {
                 http_response_code(401);
-                exit(json_encode(["status" => "ERROR", "message" => "Не може да запазите паркомястото, защото нямате предвидени лекции/упражнения в това време!"]));
+                exit(json_encode(["status" => "ERROR", "message" => "Не може да запазите паркомястото, защото нямате предвидени лекции/упражнения в този ден!"]));
             }
             else {
                 $hours = array_fill(7, 16, false); // create an associative array from 7 to 16
@@ -167,7 +167,7 @@
         for ($start = $start_time; $start < $end_time; $start++) {
             if ($hours[$start] == false) { // if there is no schedule that exists in the specified time interval for the slot reservation, then the user can't reserve the slot
                 http_response_code(401);
-                exit(json_encode(["status" => "ERROR", "message" => "Не може да запазите паркомястото, защото вече сте запазили друго в това време!"]));
+                exit(json_encode(["status" => "ERROR", "message" => "Не може да запазите паркомястото, защото нямате лекции/упражнения в търсения времеви интервал!"]));
             }
         }
 

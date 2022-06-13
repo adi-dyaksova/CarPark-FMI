@@ -43,7 +43,7 @@ function showSlides(n) {
   let slides = document.getElementsByClassName("mySlides"); // gets all the slides
   let dots = document.getElementsByClassName("btn"); // gets the buttons for the zones
 
-  if (n > slides.length) { // if the user was on the 4th slide and wants to go to the next one, head over to the first one
+  if (n > slides.length) { // if the user was on the 3rd slide and wants to go to the next one, head over to the first one
     slideIndex = 1;
   }
 
@@ -51,7 +51,7 @@ function showSlides(n) {
     slideIndex = slides.length;
   }
 
-  // hide all the slides and make onlly the current one visible
+  // hide all the slides and make only the current one visible
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
