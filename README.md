@@ -9,10 +9,10 @@
 </div>
 
 <div align="center">
-  
   <kbd>
     <img src="https://github.com/Svetoslav2112/CarPark-FMI/blob/main/Documentation/images/myprofile.png" width="480">
   </kbd>
+  
   <kbd>
     <img src="https://github.com/Svetoslav2112/CarPark-FMI/tree/main/Documentation/images/myschedule.png" width="480">
   </kbd>
@@ -22,8 +22,8 @@
   <kbd>
     <img src="https://github.com/Svetoslav2112/CarPark-FMI/tree/main/Documentation/images/parkingzones.png" width="480">
   </kbd>
+  
   <kbd>
     <img src="https://github.com/Svetoslav2112/CarPark-FMI/tree/main/Documentation/images/reservespot.png" width="480">
-  </kbd>
-  
+  </kbd> 
 </div>
